@@ -1,0 +1,67 @@
+*{
+	margin:0; 
+	padding:0;
+	box-sizing: border-box;
+
+}
+nav{
+	width: 100vw;
+	
+	background-color: #E6E6E6;
+}
+
+ul{
+	list-style-type: none;
+	margin:0;
+	display: flex;
+	justify-content: flex-end;
+	padding:15px;
+	
+
+}
+
+ul a {
+	text-decoration: none;
+	color:black;
+	margin:15px;
+}
+
+
+.container-fluid{
+	margin:0;
+	padding:0;
+}
+
+.row{
+	margin:0;
+	padding:0;
+}
+
+
+body .adminField {
+	background-color:#E6E6E6;
+	height:80vh;
+	padding:0 50px 0 50px;
+
+
+	
+
+}
+
+
+.inNav{
+	display: flex;
+	justify-content: flex-end;
+}
+
+.adminField a{
+	text-decoration: none;
+	color:black;
+	margin:10px;
+	text-align: right;
+}
+
+
+body h3{
+	text-align: center;
+}
