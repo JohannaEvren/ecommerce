@@ -85,7 +85,7 @@ if (isset($_SESSION['first_name'])){
         </form>
         <form action="" method="POST">
             <input type="hidden" name="id" value="<?=$user['id']?>">
-            <input type="submit" name="deleteUserBtn" value="Radera">
+            <input type="submit" name="deleteUserBtn" value="Delete account">
         </form>
 	</section>
     <footer>

@@ -36,7 +36,7 @@
         }
 
         if (empty($email)) {
-            $error .= "<li>Lastname is mandatory</li>";
+            $error .= "<li>Email is mandatory</li>";
         }
 
         if (empty($phone)) {
@@ -69,6 +69,10 @@
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $error .= "<li>Invalid email</li>";
+        }
+
+        if (empty($password) || empty($confirmPassword)) {
+            $error .= "<li>Password is mandatory</li>";
         }
 
         if ($error) {
