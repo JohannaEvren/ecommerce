@@ -1,13 +1,63 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Shop</title>
-</head>
-<body>
-	<h1>Shop page</h1>
+<?php
+      require('../src/config.php');
+      require('../src/dbconnect.php');
 
-	<a href="admin/adminProduct.php">ADMIN PRODUCTS</a>
-	<a href="admin/adminUsers.php">ADMIN USERS</a>
+      try{
+            $stmt  = $dbconnect->query("SELECT * FROM products");
+            $products = $stmt->fetchALL();
+         } catch (\PDOexception $e) {
 
-</body>
-</html>
+           throw new \PDOexception($e->getMessage(), $e->getCode());
+         };
+
+
+
+         try {
+            $query = "SELECT * FROM users";
+            $stmt = $dbconnect->query($query);
+              $users = $stmt->fetchAll();
+            } catch (\PDOException $e) {
+              throw new \PDOException($e->getMessage(), (int) $e->getCode());
+            }
+
+     include "layout/header.php";
+
+
+    $title    = "";
+    $description  = "";
+    $price   = "";
+
+
+?>
+
+
+
+      <a href="admin/adminProduct.php">ADMIN PRODUCTS</a>
+      <a href="admin/adminUsers.php">ADMIN USERS</a>
+
+  <form action="mypages.php" method="GET">
+    <input type="hidden" name="userId" value="<?=$user['id']?>">
+    <input type="submit" name="tomypagesBtn" value="my pages">
+      
+  </form>   
+
+
+<?php foreach ($products as $key => $text) { ?>
+<div class="row" value="<?=$text['id']?>">
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+      <img class="card-img-top" src="." alt="Card image cap">
+        <h5 class="card-title"><?=htmlentities($text['title'])?></h5>
+        <p class="card-text"><?=htmlentities($text['description'])?></p>
+        <a href="#" class="btn btn-primary"><?=htmlentities($text['price'])?></a>
+      </div>
+    </div>
+  </div>
+
+
+<?php } ?>
+
+
+
+
