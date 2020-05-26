@@ -80,28 +80,19 @@
         }
 
         if (empty($error)) {
-            try {
-                $query = "
-                    UPDATE users
-                    SET first_name = :firstname, last_name = :lastname, email = :email, password = :password, phone = :phone, street = :street, postal_code = :postal_code, city = :city, country = :country
-                    WHERE id = :id
-                ";
-
-                $stmt = $dbconnect->prepare($query);
-                $stmt->bindValue(':firstname', $first_name);
-                $stmt->bindValue(':lastname', $last_name);
-                $stmt->bindValue(':email', $email);
-                $stmt->bindValue(':password', password_hash($password, PASSWORD_BCRYPT));
-                $stmt->bindValue(':phone', $phone);
-                $stmt->bindValue(':street', $street);
-                $stmt->bindValue(':postal_code', $postal_code);
-                $stmt->bindValue(':city', $city);
-                $stmt->bindValue(':country', $country);
-                $stmt->bindValue(':id', $_GET['id']);
-                $result = $stmt->execute(); // returns true/false
-            } catch(\PDOException $e) {
-                throw new \PDOException($e->getMessage(), (int) $e->getCode());
-            }
+            $userData = [
+                'firstname'  => $first_name,
+                'lastname'   => $last_name,
+                'email'      => $email,
+                'password'   => $password,
+                'phone'      => $phone,
+                'street'     => $street,
+                'postalcode' => $postal_code,
+                'city'       => $city,
+                'country'    => $country,
+                'id'         => $_GET['id'],
+            ];
+            $result = update($userData);
 
             if ($result) {
                 $msg = '<div class="success_msg">User is updated</div>';
@@ -111,20 +102,7 @@
         }     
     }
      // Fetch user by id
-    try {
-        $query = "
-            SELECT * FROM users
-            WHERE id = :id;
-        ";
-
-        $stmt = $dbconnect->prepare($query);
-        $stmt->bindvalue(':id', $_GET['id']);
-        $stmt->execute();
-        // fetch() fetches 1 record, fetchAll() fetches alla records 
-        $user = $stmt->fetch();
-    } catch (\PDOException $e) {
-        throw new \PDOException($e->getMessage(), (int) $e->getCode());
-    }
+     $user = fetchById($_GET['id']);
 ?>
 <!DOCTYPE html>
 <html>
@@ -136,8 +114,11 @@
     </head>
     <div id="content">
         <header>
-            <form action="login.php" method="POST">
-              <input type="submit" name="loginBtn" value="Log in">
+            <form action="logout.php" method="POST">
+              <input type="submit" name="logoutBtn" value="Log out">
+            </form> 
+            <form action="index.php" method="POST">
+              <input type="submit" name="tohomeBtn" value="Home">
             </form> 
         </header>
             <form method="POST" action="#">

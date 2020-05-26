@@ -17,34 +17,19 @@
         $email    = $_POST['email'];
         $password = $_POST['password'];
 
-
-        try {
-            $query = "
-                SELECT * FROM users
-                WHERE email = :email;
-            ";
-
-            $stmt = $dbconnect->prepare($query);
-            $stmt->bindValue(':email', $email);
-            $stmt->execute(); // returns true/false
-            // fetch() fetches 1 record, fetchAll() fetches alla records 
-            $user = $stmt->fetch(); // returns the user record if exists, else returns false
-        } catch (\PDOException $e) {
-            throw new \PDOException($e->getMessage(), (int) $e->getCode());
-        }
+        $user = fetchByEmail($email);
 
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['first_name'] = $user['first_name'];
             $_SESSION['id'] = $user['id'];
-            header('Location: homepage.php');
+            redirect('index.php');
             exit;
         } else {
-            // If user doesnt Exist, will be considered false
-            // OR if user exists but password is wrong. will also be considered false
             $msg = '<div class="error_msg">Incorrect login information. Please try again.</div>';
         }
          
     }
+    
 ?>
 <!DOCTYPE html>
 <html>
@@ -57,12 +42,12 @@
 <div class="container-fluid">
     <div class="row">
         <header>
-            <form action="logout.php" method="POST">
-              <input type="submit" name="tologoutBtn" value="Log out">
-            </form> 
             <form action="register.php" method="POST">
               <input type="submit" name="registerBtn" value="Register">
-          </form> 
+            </form> 
+            <form action="index.php" method="POST">
+              <input type="submit" name="tohomeBtn" value="Home">
+            </form> 
         </header>
             <form method="POST" action="#">
                 <fieldset>

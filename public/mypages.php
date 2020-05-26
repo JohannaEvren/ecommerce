@@ -4,45 +4,23 @@ require('../src/dbconnect.php');
 
 //You must log in.
 if (!isset($_SESSION['first_name'])) {
-        header('Location: login.php?mustLogin');
+        redirect('login.php?mustLogin');
         exit;
+}else {
+  echo '<style>.loginbtns { display:none;}</style>';
 }
 
 // Delete User
 if (isset($_POST['deleteUserBtn'])) {
-  try {
-    $query = "
-      DELETE FROM users
-      WHERE id = :id;
-    ";
-
-    $stmt = $dbconnect->prepare($query);
-    $stmt->bindValue(':id', $_SESSION['id']);
-    $stmt->execute();
-  } catch (\PDOException $e) {
-    throw new \PDOException($e->getMessage(), (int) $e->getCode());
-  }
-  header('Location: login.php?logout');
-  exit;
+    delete($_POST['userId']);
 
 }
- 
+
+//Show user info
 if (isset($_SESSION['first_name'])){
-       try {
-       
-        $query = "
-        SELECT * FROM users
-        WHERE id = :id";
-
-        $stmt = $dbconnect->prepare($query);
-        $stmt->bindvalue(':id', $_SESSION['id']);
-        $stmt->execute();
-        
-        $user = $stmt->fetch();
-    } catch (\PDOException $e) {
-      throw new \PDOException($e->getMessage(), (int) $e->getCode());
-    }
+    $user = fetchById($_SESSION['id']);
 }
+
 
 ?>
 <!DOCTYPE html>
@@ -55,14 +33,19 @@ if (isset($_SESSION['first_name'])){
 </head>
 <body>
 	<header>
-		<form action="login.php" method="POST">
-            <input type="submit" name="loginBtn" value="Log in">
-        </form> 
-		<form action="logout.php" method="POST">
+        <div class="loginbtns">
+            <form action="register.php" method="POST">
+                <input type="submit" name="registerBtn" value="Register">
+            </form> 
+    		<form action="login.php" method="POST">
+                <input type="submit" name="loginBtn" value="Log in">
+            </form> 
+        </div>
+        <form action="logout.php" method="POST">
             <input type="submit" name="tologoutBtn" value="Log out">
         </form> 
-        <form action="register.php" method="POST">
-            <input type="submit" name="registerBtn" value="Register">
+        <form action="index.php" method="POST">
+              <input type="submit" name="tohomeBtn" value="Home">
         </form> 
 	</header>
 	<section>
@@ -79,19 +62,17 @@ if (isset($_SESSION['first_name'])){
             <p>Country:</p><?=htmlentities($user['country'])?>
             <p>Register Date:</p><?=htmlentities($user['register_date'])?><br>
         </div>
-        <form action="update-user.php?" method="GET" style="float:left;">
+        <form action="update-user.php" method="GET" style="float:left;">
             <input type="hidden" name="id" value="<?=$user['id']?>">
-            <input type="submit" value="Updatera">
+            <input type="submit" value="Update">
         </form>
         <form action="" method="POST">
             <input type="hidden" name="id" value="<?=$user['id']?>">
-            <input type="submit" name="deleteUserBtn" value="Delete account">
+            <input type="submit" name="deleteUserBtn" value="Delete this account">
         </form>
 	</section>
     <footer>
     </footer>
 </body>
 </html>
-
-
  

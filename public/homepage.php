@@ -2,13 +2,6 @@
 require('../src/config.php');
 require('../src/dbconnect.php'); 
 
-try {
-	$query = "SELECT * FROM users";
-	$stmt = $dbconnect->query($query);
-    $users = $stmt->fetchAll();
-	} catch (\PDOException $e) {
-	  throw new \PDOException($e->getMessage(), (int) $e->getCode());
-	}
 ?>
 <!DOCTYPE html>
 <html>
