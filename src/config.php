@@ -10,4 +10,3 @@ define('SRC_PATH',  __DIR__ . '/');
 
 // Include functions and classes
 require('app/functions.php');
-require('app/main.js');

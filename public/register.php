@@ -2,6 +2,8 @@
     require('../src/config.php');
     require('../src/dbconnect.php');
 
+    $users = fetchAll();
+
     $first_name      = '';
     $last_name       = '';
     $email           = '';
@@ -39,6 +41,12 @@
             $error .= "<li>Email is mandatory</li>";
         }
 
+        foreach ($users as $user) {
+            if ($_POST['email'] == $user['email']) {
+                $error .= "<li>This Email already exist!</li>";
+            }
+        }
+                          
         if (empty($phone)) {
             $error .= "<li>Phone is mandatory</li>";
         }
