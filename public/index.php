@@ -11,7 +11,7 @@
          };
 
 
-
+         /*
          try {
             $query = "SELECT * FROM users";
             $stmt = $dbconnect->query($query);
@@ -19,7 +19,7 @@
             } catch (\PDOException $e) {
               throw new \PDOException($e->getMessage(), (int) $e->getCode());
             }
-
+        */
      include "layout/header.php";
 
 
@@ -34,12 +34,7 @@
 
       <a href="admin/adminProduct.php">ADMIN PRODUCTS</a>
       <a href="admin/adminUsers.php">ADMIN USERS</a>
-
-  <form action="mypages.php" method="GET">
-    <input type="hidden" name="userId" value="<?=$user['id']?>">
-    <input type="submit" name="tomypagesBtn" value="my pages">
-      
-  </form>   
+      <a href="mypages.php">MY PAGES</a>
 
 
 <?php foreach ($products as $key => $text) { ?>
