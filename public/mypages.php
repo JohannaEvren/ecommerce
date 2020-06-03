@@ -12,7 +12,7 @@ if (!isset($_SESSION['first_name'])) {
 
 //Show user info
 if (isset($_SESSION['first_name'])){
-    $user = fetchById($_SESSION['id']);
+    $user = fetchUsersById($_SESSION['id']);
 }
 
 
@@ -38,22 +38,24 @@ if (isset($_SESSION['first_name'])){
         <form action="logout.php" method="POST">
             <input type="submit" name="tologoutBtn" value="Log out">
         </form> 
-        <form action="index.php" method="POST">
+        <form action="products.php" method="POST">
               <input type="submit" name="tohomeBtn" value="Home">
         </form> 
 	</header>
 	<section id ="userinfo">
-        <div class="userinfo">
-            <p>User Id:</p><?=$user['id']?>
-            <p>Firstname:</p><?=htmlentities(ucfirst($user['first_name']))?>
-            <p>Lastname:</p><?=htmlentities(ucfirst($user['last_name']))?>
-            <p>Email:</p><?=htmlentities(ucfirst($user['email']))?>
-            <p>Phone:</p><?=htmlentities($user['phone'])?>
-            <p>Street:</p><?=htmlentities(ucfirst($user['street']))?>
-            <p>Postal Code:</p><?=htmlentities($user['postal_code'])?>
-            <p>City:</p><?=htmlentities(ucfirst($user['city']))?>
-            <p>Country:</p><?=htmlentities(ucfirst($user['country']))?>
-            <p>Register Date:</p><?=htmlentities($user['register_date'])?><br>
+        <div class="row">
+            <ul class="list-group list-group-flush col-sm-6">
+                <li class="list-group-item"><b>User Id: </b><?=$user['id']?></li>
+                <li class="list-group-item"><b>Firstname: </b><?=htmlentities(ucfirst($user['first_name']))?></li>
+                <li class="list-group-item"><b>Lastname: </b><?=htmlentities(ucfirst($user['last_name']))?></li>
+                <li class="list-group-item"><b>Email: </b><?=htmlentities(ucfirst($user['email']))?></li>
+                <li class="list-group-item"><b>Phone: </b><?=htmlentities($user['phone'])?></li>
+                <li class="list-group-item"><b>Street: </b><?=htmlentities(ucfirst($user['street']))?></li>
+                <li class="list-group-item"><b>Postal Code: </b><?=htmlentities($user['postal_code'])?></li>
+                <li class="list-group-item"><b>City: </b><?=htmlentities(ucfirst($user['city']))?></li>
+                <li class="list-group-item"><b>Country: </b><?=htmlentities(ucfirst($user['country']))?></li>
+                <li class="list-group-item"><b>Register Date: </b><?=htmlentities($user['register_date'])?></li>
+            </ul>
         </div>
         <form action="update-user.php" method="GET">
             <input type="hidden" name="id" value="<?=$user['id']?>">

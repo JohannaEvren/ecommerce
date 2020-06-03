@@ -2,7 +2,7 @@
     require('../src/config.php');
     require('../src/dbconnect.php');
 
-    $users = fetchAll();
+    $users = fetchAllUsers();
 
     $first_name      = '';
     $last_name       = '';
@@ -101,7 +101,7 @@
                 'country' => $country,
                 ];
 
-            $result = register($userData);
+            $result = registerUser($userData);
             if ($result) {
                 $msg = '<div class="success_msg">Your account is created.</div>';
             } else {
@@ -124,7 +124,7 @@
             <form action="login.php" method="POST">
               <input type="submit" name="loginBtn" value="Log in">
             </form>
-            <form action="index.php" method="POST">
+            <form action="products.php" method="POST">
               <input type="submit" name="tohomeBtn" value="Home">
             </form>  
         </header>

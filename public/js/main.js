@@ -62,43 +62,5 @@ $(document).ready(function() {
 			},
 		});
 	}
-
-/* Ifall jag behöver
-	function appendUserList(data) {
-		let html = '';
-		console.log(data);
-		for (user of data['users']) {
-            
-
-			html +=
-			'<div class="userinfo">' +
-	            '<p>User Id:</p>' + user['id'] +
-	            '<p>Firstname:</p>' + user['first_name'] +
-	            '<p>Lastname:</p>' + user['last_name'] + 
-	            '<p>Email:</p>' + user['email'] +
-	            '<p>Password:</p>' + user['password'] + 
-	            '<p>Phone:</p>' + user['phone'] + 
-	            '<p>Street:</p>' + user['street'] + 
-	            '<p>Postal Code:</p>' + user['postal_code'] +
-	            '<p>City:</p>' + user['city'] +
-	            '<p>Country:</p>' + user['country']
-	            '<p>Register Date:</p>' + user['register_date'] + '<br>' +
-            '</div>' +
-            '<form action="update-user.php" method="GET">' +
-	            '<input type="hidden" name="id" value="' + user['id'] +'">' +
-	            '<input type="submit" value="Update">' +
-            '</form>' +
-	        '<form action="" method="POST">' + 
-	            '<input type="hidden" name="id" value="' + user['id'] + '">' +
-	            '<input type="submit" name="deleteUserBtn" value="Delete this account" class="delete-user-btn">' +
-	        '</form>';
-		}
-
-		$('#userinfo').html(html);
-
-		// Add eventlisteners
-		$('.delete-user-btn').on('click', deleteUserEvent);
-	}
-	*/
 });	
 

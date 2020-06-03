@@ -16,7 +16,7 @@
     $msg             = '';
 
      // Fetch user by id
-     $user = fetchById($_GET['id']);
+     $user = fetchUsersById($_GET['id']);
 ?>
 <!DOCTYPE html>
 <html>
