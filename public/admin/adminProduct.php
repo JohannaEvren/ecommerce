@@ -3,7 +3,8 @@
 
   require('../../src/dbconnect.php');
  
-
+  $msg = "";
+  $sucsess = "";
   if(isset($_POST['delete'])){
     try{
         $query = "DELETE FROM products WHERE id = :id;";

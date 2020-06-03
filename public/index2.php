@@ -22,12 +22,11 @@
         */
      include "layout/header.php";
 
-
     $title    = "";
     $description  = "";
     $price   = "";
 
-
+   
 ?>
 
 
@@ -52,6 +51,7 @@
 
 
 <?php } ?>
+
 
 
 

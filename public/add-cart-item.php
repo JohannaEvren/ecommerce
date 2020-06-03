@@ -1,6 +1,6 @@
 <?php
-require('../../src/config.php');
-require('../../src/dbconnect.php'); 
+require('../src/config.php');
+require('../src/dbconnect.php'); 
 
 //echo "<pre>";
 //print_r($_POST);
@@ -31,9 +31,9 @@ if(!empty($_POST['quantity'])) {
 		//echo "</pre>";
 		
 		$cartItem = [$productId => $product];
-        //echo "<pre>";
-		//print_r($cartItem);
-		//echo "</pre>";
+        echo "<pre>";
+		print_r($cartItem);
+		echo "</pre>";
 		
         if (empty($_SESSION['cartItems'])) {
         	$_SESSION['cartItems'] = $cartItem;
@@ -51,6 +51,8 @@ if(!empty($_POST['quantity'])) {
 //echo "</pre>";
 
 //Sidan man kom ifrån
+
 header('Location: ' . $_SERVER['HTTP_REFERER']);
 exit;
+
 ?>

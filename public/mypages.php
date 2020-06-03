@@ -64,8 +64,7 @@ if (isset($_SESSION['first_name'])){
             <input type="submit" name="deleteUserBtn" value="Delete this account" class="delete-user-btn">
         </form>
 	</section>
-    <footer>
-    </footer>
+    <?php include "layout/footer.php";?>
      <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
