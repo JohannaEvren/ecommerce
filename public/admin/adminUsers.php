@@ -4,7 +4,8 @@
   require('../../src/dbconnect.php');
   require('../../src/functions.php');
  
-
+  $msg ="";
+  $sucsess = "";
   if(isset($_POST['delete'])){
     deleteUser($_POST['postid']);
     };
