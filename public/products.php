@@ -18,8 +18,8 @@
     $price   = "";
 
 ?>
+<?php include "cart.php";?>
 <div class="container">
-  <?php include "cart.php";?>
   <?php foreach ($products as $key => $text) { ?>
   <div class="row" name="showcard" value="<?=$text['id']?>">
     <div class="col-sm-4 border p-4 d-flex flex-column" >
