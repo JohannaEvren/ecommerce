@@ -31,6 +31,7 @@ if(!empty($_POST['quantity'])) {
 		//echo "</pre>";
 		
 		$cartItem = [$productId => $product];
+
         //echo "<pre>";
 		//print_r($cartItem);
 		//echo "</pre>";
@@ -51,6 +52,6 @@ if(!empty($_POST['quantity'])) {
 //echo "</pre>";
 
 //Sidan man kom ifrån
+
 header('Location: ' . $_SERVER['HTTP_REFERER']);
 exit;
-?>

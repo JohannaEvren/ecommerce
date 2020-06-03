@@ -3,8 +3,28 @@
 
   require('../../src/config.php');
   require('../../src/dbconnect.php');
-  require('../../src/functions.php');
+ 
 
+  if(isset($_POST['delete'])){
+    try{
+        $query = "DELETE FROM products WHERE id = :id;";
+        $stmt  = $dbconnect->prepare($query);
+        $stmt->bindValue(':id', $_POST['postid']);
+        $stmt->execute();
+        } catch (\PDOexception $e) {
+          throw new \PDOexception($e->getMessage(), (int) $e->getCode());
+      };
+    };
+
+
+//GET BLOGPOST
+
+     try{
+        $stmt  = $dbconnect->query("SELECT * FROM products");
+        $products = $stmt->fetchALL();
+      } catch (\PDOexception $e) {
+          throw new \PDOexception($e->getMessage(), $e->getCode());
+      };
 
 /*
       if(isset($_POST['delete'])){

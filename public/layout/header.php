@@ -32,6 +32,8 @@
 					<a href="#"><li>ADMIN</li></a>
 				</ul>
 			</nav>
+			<div class="loginbtns">
+           
 
 		</header>
 <hr>

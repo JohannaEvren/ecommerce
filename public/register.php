@@ -2,6 +2,8 @@
     require('../src/config.php');
     require('../src/dbconnect.php');
 
+    $users = fetchAll();
+
     $first_name      = '';
     $last_name       = '';
     $email           = '';
@@ -36,9 +38,15 @@
         }
 
         if (empty($email)) {
-            $error .= "<li>Lastname is mandatory</li>";
+            $error .= "<li>Email is mandatory</li>";
         }
 
+        foreach ($users as $user) {
+            if ($_POST['email'] == $user['email']) {
+                $error .= "<li>This Email already exist!</li>";
+            }
+        }
+                          
         if (empty($phone)) {
             $error .= "<li>Phone is mandatory</li>";
         }
@@ -59,6 +67,10 @@
             $error .= "<li>Country is mandatory</li>";
         }
 
+        if (empty($password) || empty($confirmPassword)) {
+            $error .= "<li>Password is mandatory</li>";
+        }
+
         if (!empty($password) && strlen($password) < 6) {
             $error .= "<li>Password is mandatory and need to be at least 6 characters long</li>";
         }
@@ -76,36 +88,27 @@
         }
         
         if (empty($error)) {
-            try {
-                $query = "
-                    INSERT INTO users (first_name, last_name, email, password, phone, street, postal_code, city, country)
-                    VALUES (:firstname, :lastname, :email, :password, :phone, :street, :postal_code, :city, :country);
-                ";
+            
+            $userData = [
+                'firstname' => $first_name,
+                'lastname' => $last_name,
+                'email' => $email,
+                'password' => $password,
+                'phone' => $phone,
+                'street' => $street,
+                'postalcode' => $postal_code,
+                'city' => $city,
+                'country' => $country,
+                ];
 
-                
-                $stmt = $dbconnect->prepare($query);
-                $stmt->bindValue(':firstname', $first_name);
-                $stmt->bindValue(':lastname', $last_name);
-                $stmt->bindValue(':email', $email);
-                $stmt->bindValue(':password', password_hash($password, PASSWORD_BCRYPT));
-                $stmt->bindValue(':phone', $phone);
-                $stmt->bindValue(':street', $street);
-                $stmt->bindValue(':postal_code', $postal_code);
-                $stmt->bindValue(':city', $city);
-                $stmt->bindValue(':country', $country);
-                $result = $stmt->execute(); // returns true/false
-
-                } catch(\PDOException $e) {
-                    throw new \PDOException($e->getMessage(), (int) $e->getCode());
-                }
-
-                if ($result) {
-                    $msg = '<div class="success_msg">Your account has been registered.</div>';
-                } else {
-                    $msg = '<div class="error_msg">Something went wrong, please try again later!</div>';
-                }
+            $result = register($userData);
+            if ($result) {
+                $msg = '<div class="success_msg">Your account is created.</div>';
+            } else {
+                $msg = '<div class="error_msg">Register failed. Please try again later!</div>';
             }
-       }
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -120,7 +123,10 @@
         <header>
             <form action="login.php" method="POST">
               <input type="submit" name="loginBtn" value="Log in">
-            </form> 
+            </form>
+            <form action="index.php" method="POST">
+              <input type="submit" name="tohomeBtn" value="Home">
+            </form>  
         </header>
             <form method="POST" action="#">
                 <fieldset>
