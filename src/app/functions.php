@@ -5,7 +5,7 @@
 	}
     
     //fetch all
-	function fetchAll() {
+	function fetchAllUsers() {
     	global $dbconnect;
 
         try {
@@ -19,7 +19,7 @@
     }
 
     // Fetch by id
-    function fetchById($id) {
+    function fetchUsersById($id) {
 	    global $dbconnect;
 
 	    try {
@@ -41,7 +41,7 @@
 	}
 
 	//Fetch by Email
-	function fetchByEmail($email) {
+	function fetchUsersByEmail($email) {
 	    global $dbconnect;
 
 	    try {

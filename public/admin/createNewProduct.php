@@ -14,7 +14,7 @@
 
     $title        = "";
     $description  = "";
-    $price        = "";
+    $price        = 0;
     $error        = "";
     $msg          = "";
 
@@ -39,6 +39,12 @@
           $error .= "<li class='list-group-item list-group-item-danger'>Price can not be empty</li>";
 
         }
+
+        if(!is_numeric($_POST['price'])){
+          $error .= "<li class='list-group-item list-group-item-danger'>Price have to be a rounded number</li>";
+
+        }
+
 
 
       if(!empty($error)){
@@ -100,7 +106,7 @@
               <label for="description">Write description here</label> <br>
               <textarea rows="6" cols="50" name="description" form="newProduct"><?=$description?></textarea><br>
               <label for="price">Price</label><br>
-              <input type="text" name="price" id="" value="<?=$price?>">
+              <input type="number" name="price" id="" value="<?=$price?>">
             </p>
             <input type="submit" class='btn btn-info' name="addProduct" value="save">
             <input type="submit" class='btn btn-info' name="closeForm" value="close">

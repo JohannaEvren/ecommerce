@@ -31,9 +31,10 @@ if(!empty($_POST['quantity'])) {
 		//echo "</pre>";
 		
 		$cartItem = [$productId => $product];
-        echo "<pre>";
-		print_r($cartItem);
-		echo "</pre>";
+
+        //echo "<pre>";
+		//print_r($cartItem);
+		//echo "</pre>";
 		
         if (empty($_SESSION['cartItems'])) {
         	$_SESSION['cartItems'] = $cartItem;
@@ -54,5 +55,3 @@ if(!empty($_POST['quantity'])) {
 
 header('Location: ' . $_SERVER['HTTP_REFERER']);
 exit;
-
-?>

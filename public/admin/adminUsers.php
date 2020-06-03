@@ -1,31 +1,18 @@
  <?php 
 
+  require('../../src/config.php');
   require('../../src/dbconnect.php');
+  require('../../src/functions.php');
  
   $msg ="";
   $sucsess = "";
   if(isset($_POST['delete'])){
-    try{
-        $query = "DELETE FROM users WHERE id = :id;";
-        $stmt  = $dbconnect->prepare($query);
-        $stmt->bindValue(':id', $_POST['postid']);
-        $stmt->execute();
-        } catch (\PDOexception $e) {
-          throw new \PDOexception($e->getMessage(), (int) $e->getCode());
-      };
+    deleteUser($_POST['postid']);
     };
 
 
-//GET BLOGPOST
-
-
-     try{
-        $stmt  = $dbconnect->query("SELECT * FROM users");
-        $users = $stmt->fetchALL();
-      } catch (\PDOexception $e) {
-          throw new \PDOexception($e->getMessage(), $e->getCode());
-      };
-
+    $users = fetchAllUsers();
+    $sucsess = '';
 
     //SUCSESS MESSAGE FOR EDIT AND NEW POST
       if(isset($_GET['sucsessUpdate'])){
@@ -36,17 +23,7 @@
         $sucsess = "<div class='alert alert-success offset-4 col-4'>User was created sucessfully</div>";
       }
 
-/*
-      echo "<pre>";
-      print_r($users);
-      echo"</pre>";
-
-*/
   ?>
-
-
-
-
 
   <!DOCTYPE html>
     <html>
@@ -64,21 +41,14 @@
           </ul>
       </nav>
 
-
          <div class="container-fluid">
-          
+
           <h3>Manage users here</h3>
           <div class="row">
           <div class="offset-2 col-8 adminField">
 
           <div class="row">
         <div class="offset-4 col-8"> 
-            <?=$msg ?>
-
-            <!---
-           <form action="createNewUser.php" method="GET"> 
-              <input type="submit" class='btn btn-info' name="showform" value="CREATE NEW USER"/> 
-           </form> !--->
           <div class="inNav">
            <a href="createNewUser.php">Create new</a>
            <a href="See all products">Se all products</a>
@@ -88,7 +58,6 @@
         </div> 
       </div> 
       <div class="row">
-
 
         <div class="col-12">
           <table class="table table-dark" style="width:100%">
@@ -102,15 +71,9 @@
   
                foreach(array_reverse($users) as $user){ ?>
                     
-
-                        <tr>
-                        
+                        <tr>   
                         <td><?=$user['first_name']?></td>
-                        
-
                         <td><?=$user['last_name']?></td>
-                        
-                      
 
                         <form action="editusers.php" method='GET'>
                         <td><input type='submit' class='btn btn-info' name='edit' value='EDIT'></td> 
@@ -124,9 +87,6 @@
                         </tr> 
 
                <?php }; ?>
-
-
-
 
           </table>
         </div>
