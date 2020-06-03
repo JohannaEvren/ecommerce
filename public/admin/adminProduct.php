@@ -39,6 +39,7 @@
             <li><a href="adminUsers.php">USER ADMINISTRATION</a></li>
             <li><a href="adminProduct.php">PRODUCT ADMINISTRATION</a></li>
             <li><a href="../index.php">BACK TO SHOP</a></li>
+            <li><a href="checkout.php">CheckOut</a></li>
           </ul>
       </nav>
 
