@@ -37,6 +37,15 @@
             $country = trim($_POST['country']);
             
 
+
+  foreach ($users as $user) {
+
+      if($_POST['email'] == $user['email']){
+        $error .= "<li class='list-group-item list-group-item-danger'>Email already exists</li>";
+      }
+  }
+  
+
       if(trim($_POST['first_name']) == ''){
           $error .= "<li class='list-group-item list-group-item-danger'>First name can not be empty</li>";
 
