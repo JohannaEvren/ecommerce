@@ -2,7 +2,7 @@
 
   require('../../src/config.php');
   require('../../src/dbconnect.php');
-  require('../../src/functions.php');
+  
  
   $msg ="";
   $sucsess = "";

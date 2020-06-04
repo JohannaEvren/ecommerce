@@ -12,7 +12,7 @@ if (!isset($_SESSION['first_name'])) {
 
 //Show user info
 if (isset($_SESSION['first_name'])){
-    $user = fetchById($_SESSION['id']);
+    $user = fetchUsersById($_SESSION['id']);
 }
 
 

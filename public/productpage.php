@@ -1,5 +1,6 @@
 <?php
-    
+
+      require('../src/config.php');  
       require('../src/dbconnect.php');
       
       
@@ -17,6 +18,7 @@
 
 
      include "layout/header.php";
+     include"cart.php";
     
 
     $title            = "";
@@ -36,8 +38,8 @@
         <p class="card-text"><?=htmlentities($products['description'])?></p>
         <span><?=htmlentities($products['price'])?></span>
         
-        <form action="layout/add-cart-item.php" method="POST">
-<input type="hidden" name="productId" value = "<?=$text['id']?>">
+        <form action="add-cart-item.php" method="POST">
+<input type="hidden" name="productId" value = "<?=$_POST['productId']?>">
 <input type="number" name="quantity" value ="1" min= "0">
 <input type="submit" name="addToCart" value = "Add To Cart">
 
