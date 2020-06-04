@@ -9,7 +9,7 @@ require('../src/dbconnect.php');
 
 // Delete User
 if (isset($_POST['deleteUserBtn'])) {
-    deleteUser($_POST['id']);
+    deleteMyUser($_POST['id']);
 
 }
 

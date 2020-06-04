@@ -63,7 +63,7 @@
 	       }
 
 	//Delete
-    function deleteUser($id) {
+    function deleteMyUser($id) {
     	global $dbconnect;
     	try {
 	    $query = "
