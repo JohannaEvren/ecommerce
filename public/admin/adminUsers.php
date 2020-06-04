@@ -6,10 +6,13 @@
  
   $msg ="";
   $sucsess = "";
+
+
+  /*
   if(isset($_POST['delete'])){
     deleteUser($_POST['postid']);
     };
-
+*/
 
     $users = fetchAllUsers();
     $sucsess = '';
@@ -37,7 +40,7 @@
           <ul>
             <li><a href="adminUsers.php">USER ADMINISTRATION</a></li>
             <li><a href="adminProduct.php">PRODUCT ADMINISTRATION</a></li>
-            <li><a href="../index.php">BACK TO SHOP</a></li>
+            <li><a href="../products.php">BACK TO SHOP</a></li>
           </ul>
       </nav>
 
@@ -66,6 +69,7 @@
                           <th>LAST NAME</th>
                           
                         </tr>
+        <tbody id="userList">
 
             <?php 
   
@@ -80,20 +84,30 @@
                         <input type='hidden' name='postid' value='<?=$user['id']?>'>
                         </form>
                         <form method="POST">
-                        <td><input type='submit' class='btn btn-info' name='delete' value='DELETE'></td>
+                        <td><input type='submit' class='btn btn-info delete-user-btn' name='delete' value='DELETE'></td>
                         <input type='hidden' name='postid' value='<?=$user['id']?>'>
                         </form>
                       
                         </tr> 
 
                <?php }; ?>
-
+          </tbody>
           </table>
         </div>
       </div>
     </div>
     </div>
     </div>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- CUSTOM JavaScript -->
+    <!---  <script src="../../src/main.js"></script>!--->
+  <!--- <script src="../../src/test.js"></script>  !--->
+    <script src="../../src/main.js"></script> 
 </body>
 </html>
         

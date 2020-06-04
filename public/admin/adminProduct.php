@@ -58,8 +58,7 @@
           <ul>
             <li><a href="adminUsers.php">USER ADMINISTRATION</a></li>
             <li><a href="adminProduct.php">PRODUCT ADMINISTRATION</a></li>
-            <li><a href="../index.php">BACK TO SHOP</a></li>
-            <li><a href="checkout.php">CheckOut</a></li>
+            <li><a href="../products.php">BACK TO SHOP</a></li>
           </ul>
       </nav>
 
@@ -111,7 +110,7 @@
                                       <input type='hidden' name='postid' value='<?=$product['id']?>'>
                                       </form>
                                       <form method="POST">
-                                      <td><input type='submit' class='btn btn-info delete-btn' id="delete-btn" name='delete' value='DELETE'></td>
+                                      <td><input type='submit' class='btn btn-info delete-prod-btn' id="delete-btn" name='delete' value='DELETE'></td>
                                       <input type='hidden' name='postid' value='<?=$product['id']?>'>
                                       </form>
                                     

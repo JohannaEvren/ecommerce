@@ -123,6 +123,8 @@
 
 
     function deleteUser($userId){
+        global $dbconnect;
+
    try{
         $query = "DELETE FROM users WHERE id = :id;";
         $stmt  = $dbconnect->prepare($query);
