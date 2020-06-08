@@ -1,25 +1,22 @@
 <?php
+     require('../../src/config.php');
      require('../../src/dbconnect.php');
+
  
 
-      try{
-            $stmt  = $dbconnect->query("SELECT * FROM users");
-            $users = $stmt->fetchALL();
-         } catch (\PDOexception $e) {
-
-           throw new \PDOexception($e->getMessage(), $e->getCode());
-         };
+      $users = fetchAllUsers();
 
 
             $first_name = "";
             $last_name = "";
             $email = "";
-            $password = "";
             $phone = "";
             $street = "";
             $postal_code = "";
             $city = "";
             $country = "";
+            $password = "";
+            $confirmPassword = "";
             $msg     = "";
             $error        = "";
             $msg          = "";
@@ -29,12 +26,13 @@
       $first_name = trim($_POST['first_name']);
             $last_name = trim($_POST['last_name']);
             $email = trim($_POST['email']);
-            $password = trim($_POST['password']);
             $phone = trim($_POST['phone']);
             $street = trim($_POST['street']);
             $postal_code = trim($_POST['postal_code']);
             $city = trim($_POST['city']);
             $country = trim($_POST['country']);
+            $password = trim($_POST['password']);
+            $confirmPassword = trim($_POST['confirmPassword']);
             
 
 
@@ -44,7 +42,12 @@
         $error .= "<li class='list-group-item list-group-item-danger'>Email already exists</li>";
       }
   }
-  
+
+
+       if($password != $confirmPassword){
+        $error .= "<li class='list-group-item list-group-item-danger'>the confirmed password does not match</li>";
+
+       } 
 
       if(trim($_POST['first_name']) == ''){
           $error .= "<li class='list-group-item list-group-item-danger'>First name can not be empty</li>";
@@ -92,29 +95,23 @@
 
         else{
 
-           try{
-          
-              $query = "INSERT INTO users (first_name, last_name, email, password, phone, street, postal_code, city, country) VALUES (:first_name, :last_name, :email, :password, :phone, :street, :postal_code, :city, :country);";
-              $stmt = $dbconnect->prepare($query);
-               $stmt->bindValue(':first_name', $first_name );
-                      $stmt->bindValue(':last_name', $last_name);
-                      $stmt->bindValue(':email', $email );
-                      $stmt->bindValue(':password', $password );
-                      $stmt->bindValue(':phone', $phone );
-                      $stmt->bindValue(':street', $street );
-                      $stmt->bindValue(':postal_code', $postal_code );
-                      $stmt->bindValue(':city', $city );
-                      $stmt->bindValue(':country', $country );
-                     
-              $stmt->execute();
-              
+           $userData = [
+                'firstname' => $first_name,
+                'lastname' => $last_name,
+                'email' => $email,
+                'password' => $password,
+                'phone' => $phone,
+                'street' => $street,
+                'postalcode' => $postal_code,
+                'city' => $city,
+                'country' => $country,
+                ];
 
-              unset($_GET['showform']);
-              } catch (\PDOexception $e) {
-                 throw new \PDOexception($e->getMessage(), (int) $e->getCode());
 
-          };
-                      header('Location: adminUsers.php?sucsessNew=yes');
+               register($userData);
+               //MÅSTE BYTA NAMN PÅ FUNKTIONENE!!!!!!
+  
+               header('Location: adminUsers.php?sucsessNew=yes');
         }
     };
 
@@ -129,13 +126,14 @@
     <html>
     <head>
       <title>Admin</title>
+       <link rel="stylesheet" type="text/css" href="css/style.css"> 
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     </head>
     <body>
 
   <div class="container-fluid">
     <div class="row">
-      <div class="offset-1 col-10">
+      <div class="offset-3 col-6 newUserBox">
         <?=$msg?>
         <div class="form-group">
           <form id="" method="POST">
@@ -150,10 +148,6 @@
               <p>
                 <label for="email">Email</label><br>
                 <input type="email" name="email" id="" value="<?=$email?>">
-              </p>
-              <p>
-                <label for="password">Password</label><br>
-                <input type="password" name="password" id="" value="<?=$password?>">
               </p>
               <p>
                 <label for="phone">phone</label><br>
@@ -174,6 +168,14 @@
                   <p>
                 <label for="country">Country</label><br>
                 <input type="text" name="country" id="" value="<?=$country?>">
+              </p>
+              <p>
+                <label for="password">Password</label><br>
+                <input type="password" name="password" id="" value="<?=$password?>">
+              </p>
+              <p>
+                <label for="password">Confirm Password</label><br>
+                <input type="password" name="confirmPassword" id="" value="<?=$confirmPassword?>">
               </p>
               
               <input type="submit" class='btn btn-info' name="addUser" value="save">

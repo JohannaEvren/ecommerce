@@ -1,7 +1,6 @@
 <?php 
-  require('../src/dbconnect.php');
-?>
 
+ ?>
 
 <!DOCTYPE html>
 <html lang="sv"> 
@@ -16,20 +15,14 @@
 
 </head>
 		<header>
-			
-			
-			<label for="cartbutton" id="shoppingc" >
-				<img src="img/shoppingbag-cutout.png" width="25px">
-			</label>
 
-			<a href="index.html"><p>INREDNING</p></a>
+			<a href="products.php"><p>INREDNING</p></a>
 			
 			<nav class="menu">
 				<ul>
-					<a href="index.php"><li>HOME</li></a>
-					<a href="#"><li>PRODUCTS</li></a>
-					<a href="#"><li>SIGN UP</li></a>
-					<a href="#"><li>ADMIN</li></a>
+					<a href="register.php"><li>SIGN UP</li></a>
+					<a href="login.php"><li>LOGIN</li></a>
+					<a href="admin/admin.php"><li>ADMIN</li></a>
 				</ul>
 			</nav>
 			<div class="loginbtns">

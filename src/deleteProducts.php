@@ -1,8 +1,10 @@
 <?php  
 
-
+require('config.php');
 require('dbconnect.php');
- require('functions.php');
+
+
+
 
 if(isset($_POST['deletebtn'])){
        deleteProduct($_POST['prodId']);

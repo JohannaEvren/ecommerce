@@ -19,7 +19,7 @@
 
 ?>
 <?php include "cart.php";?>
-<div class="container">
+<div class="container" style="width: 100%">
   <?php foreach ($products as $key => $text) { ?>
   <div class="row" name="showcard" value="<?=$text['id']?>">
     <div class="col-sm-4 border p-4 d-flex flex-column" >
@@ -48,5 +48,5 @@
   </div>
 
 
-  <?php } ?>
+  <?php } include"layout/footer.php" ?>
 </div>

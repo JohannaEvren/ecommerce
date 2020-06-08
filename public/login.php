@@ -74,5 +74,7 @@
             
             <hr>
     </div>
+
 </div>
+<?php include "layout/footer.php"; ?>
 </html>
