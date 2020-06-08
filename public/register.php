@@ -101,7 +101,7 @@
                 'country' => $country,
                 ];
 
-            $result = register($userData);
+            $result = registerUser($userData);
             if ($result) {
                 $msg = '<div class="success_msg">Your account is created.</div>';
             } else {
@@ -109,6 +109,7 @@
             }
         }
     }
+    include('layout/header.php');
 ?>
 
 <!DOCTYPE html>
@@ -120,14 +121,6 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
     <div id="content">
-        <header>
-            <form action="login.php" method="POST">
-              <input type="submit" name="loginBtn" value="Log in">
-            </form>
-            <form action="index.php" method="POST">
-              <input type="submit" name="tohomeBtn" value="Home">
-            </form>  
-        </header>
             <form method="POST" action="#">
                 <fieldset>
                     <legend>Register here</legend>
@@ -190,6 +183,5 @@
                     </p>
                 </fieldset>
             </form>
-            <hr>
     </div>
 </html>

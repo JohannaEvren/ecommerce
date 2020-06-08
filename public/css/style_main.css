@@ -8,8 +8,6 @@
 
 
 body header{ 
-
-	
 	/*background-color: rgba(39,39,39,1);*/
 	color:black;
 	padding: 5px 25px 10px 25px;
@@ -19,8 +17,6 @@ body header{
 	font-size: 30px;
 	letter-spacing: 6px;
 	display: flex;
-
-
 }
 
 body hr{
@@ -64,18 +60,60 @@ body a:hover{
 	
 }
 
+/* CART STYLE */
 
+body .dropdown-menu {
+	width: 300px;
+	padding: 20px;
+}
 
+.btn-dark {
+	margin-top: 10px;
+}
 
-	
+button.btn.btn-dark {
+	background-color: #5F5F5F;
+	border: none;
+	margin: 15px;
+}
 
+.btn.btn-info:focus {
+	background-color: #5F5F5F;
+}
 
+.btn.btn-info:hover{
+	background-color: #5F5F5F;
+}
 
+span.badge-danger {
+	margin-left: 5px;
+	background-color: #000;
+}
 
+span.text-info {
+	color: #E01A3B !important;
+}
 
+/* LOG IN */
 
+div.loginbox {
+	width: 40%;
+	margin: 0 auto;
+	background-color: rgba(95, 95, 95, 0.6);
+	padding: 30px;
+	margin-top: 60px;
+}
 
+input.login {
+	background-color: #000;
+	border: none;
+	color: #FFF;
+	width: 80px;
+	padding: 5px;
+}
 
-
-
+input.logintext {
+	width: 300px;
+	height: 35px;
+}
 

@@ -35,7 +35,7 @@
     }
 
     // Fetch by id
-    //OBS!!!!!!!!! HAR ÄNDRAT SÅ ATT ID I BILDVALUE ÄR ID VARIABLEN, OCH INTE $_SESSION.
+
     function fetchUsersById($id) {
 	    global $dbconnect;
 
@@ -105,7 +105,7 @@
             };
 
 	//Delete
-    function delete($id) {
+    function deleteMyUser($id) {
     	global $dbconnect;
     	try {
 	    $query = "
@@ -114,7 +114,7 @@
 	    ";
 
 	    $stmt = $dbconnect->prepare($query);
-	    $stmt->bindValue(':id', $_SESSION['id']);
+	    $stmt->bindValue(':id', $id);
 	    $stmt->execute();
 	  } catch (\PDOException $e) {
 	    throw new \PDOException($e->getMessage(), (int) $e->getCode());
@@ -139,7 +139,7 @@
 
     
     //Register
-	function register($userData) {
+	function registerUser($userData) {
         global $dbconnect;
    
         try {
@@ -168,7 +168,7 @@
             }
         
     //Update
-    function update($userData) {
+    function updateUser($userData) {
 		global $dbconnect;
 
 		try {
