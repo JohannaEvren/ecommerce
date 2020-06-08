@@ -8,6 +8,8 @@ $('.delete-prod-btn').on('click', deleteProductAjax)
 $('.delete-user-btn').on('click', deleteUserAjax)
 
 
+
+
 });
 
 	function deleteProductAjax(e) {
@@ -63,9 +65,9 @@ function deleteUserAjax(f) {
 				 html +=  '<tr>' + 
 		                      '<td>' + product["title"] + '</td>' +
 		                      '<td>' + product["description"] + ' </td>' + 
-		                      '<td>' + product["price"] + 'SEK' + ' </td>'+ 
+		                      '<td>' + product["price"] + ' SEK' + ' </td>'+ 
 		                      '<form action="editproduct.php" method="GET">' + 
-		                      	'<td><input type="submit" class="btn btn-info" name="edit" value="EDIT"></td> ' + 
+		                      	'<td><input type="submit" class="btn btn-info editProd" name="edit" value="EDIT"></td> ' + 
 		                      	'<input type="hidden" name="postid" value="' + product["id"]+ '">' +
 		                      '</form>' + 
 		                      '<form method="POST">' + 
@@ -77,6 +79,11 @@ function deleteUserAjax(f) {
 					};
 					productList.html(html);
 					$('.delete-prod-btn').on('click', deleteProductAjax)
+					$('.editProd').on('click', function(e){
+
+							e.preventDefault();
+							$(this).submit();
+					})
 
 		
 	}
@@ -94,9 +101,11 @@ function deleteUserAjax(f) {
 							 html +=  '<tr>' + 
 					                      '<td>' + user["first_name"] + '</td>' +
 					                      '<td>' + user["last_name"] + ' </td>' + 
+					                      '<td>' + user["register_date"] + ' </td>' + 
+					                      '<td>' + user["id"] + ' </td>' + 
 					                     
-					                      '<form action="edituser.php" method="GET">' + 
-					                      	'<td><input type="submit" class="btn btn-info" name="edit" value="EDIT"></td> ' + 
+					                      '<form action="editUsers.php" method="GET">' + 
+					                      	'<td><input type="submit" class="btn btn-info" name="edit" value="EDIT"></td>' + 
 					                      	'<input type="hidden" name="postid" value="' + user["id"]+ '">' +
 					                      '</form>' + 
 					                      '<form method="POST">' + 
@@ -114,5 +123,8 @@ function deleteUserAjax(f) {
 
 		
 	}
+
+
+
 
 

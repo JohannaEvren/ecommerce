@@ -35,6 +35,7 @@
     }
 
     // Fetch by id
+    //OBS!!!!!!!!! HAR ÄNDRAT SÅ ATT ID I BILDVALUE ÄR ID VARIABLEN, OCH INTE $_SESSION.
     function fetchUsersById($id) {
 	    global $dbconnect;
 
@@ -45,7 +46,7 @@
         WHERE id = :id";
 
         $stmt = $dbconnect->prepare($query);
-        $stmt->bindvalue(':id', $_SESSION['id']);
+        $stmt->bindvalue(':id', $id);
         $stmt->execute();
         
         $user = $stmt->fetch();

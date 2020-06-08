@@ -2,15 +2,6 @@
      require('../../src/dbconnect.php');
  
 
-      try{
-            $stmt  = $dbconnect->query("SELECT * FROM products");
-            $posts = $stmt->fetchALL();
-         } catch (\PDOexception $e) {
-
-           throw new \PDOexception($e->getMessage(), $e->getCode());
-         };
-
-
 
     $title        = "";
     $description  = "";
@@ -44,7 +35,6 @@
           $error .= "<li class='list-group-item list-group-item-danger'>Price have to be a rounded number</li>";
 
         }
-
 
 
       if(!empty($error)){
@@ -89,12 +79,13 @@
     <html>
     <head>
       <title>Admin</title>
+      <link rel="stylesheet" type="text/css" href="css/style.css"> 
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     </head>
     <body>
   <div class="container-fluid">
     <div class="row">
-      <div class="offset-1 col-10">
+      <div class="offset-3 col-6 newProductBox">
         <?=$msg?>
         <div class="form-group">
           <form id="newProduct" method="POST">
