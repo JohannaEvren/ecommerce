@@ -29,7 +29,7 @@
         }
          
     }
-    
+    include('layout/header.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -40,7 +40,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <div class="container-fluid">
-    <div class="row">
+    <div class="row loginbox">
+        <!--
         <header>
             <form action="register.php" method="POST">
               <input type="submit" name="registerBtn" value="Register">
@@ -49,30 +50,29 @@
               <input type="submit" name="tohomeBtn" value="Home">
             </form> 
         </header>
+        -->
             <form method="POST" action="#">
                 <fieldset>
-                    <legend>Logga in</legend>
+                    <legend>Log in</legend>
                         
-                        <!-- Visa errormeddelanden -->
+                    <!-- Visa errormeddelanden -->
                     <?=$msg?>
                         
                     <p>
-                        <label for="input1">Email:</label> <br>
-                        <input type="text" class="text" name="email">
+                        <label for="input1"><b>Email:</b></label> <br>
+                        <input type="text" class="logintext" name="email">
                     </p>
 
                     <p>
-                        <label for="input2">Password:</label> <br>
-                        <input type="password" class="text" name="password">
+                        <label for="input2"><b>Password:</b></label> <br>
+                        <input type="password" class="logintext" name="password">
                     </p>
 
                     <p>
-                        <input type="submit" name="doLogin" value="Log in">
+                        <input type="submit" class="login" name="doLogin" value="LOG IN">
                     </p>
                 </fieldset>
             </form>
-            
-            <hr>
     </div>
 </div>
 </html>

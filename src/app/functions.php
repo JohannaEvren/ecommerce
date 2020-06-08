@@ -63,7 +63,7 @@
 	       }
 
 	//Delete
-    function delete($id) {
+    function deleteMyUser($id) {
     	global $dbconnect;
     	try {
 	    $query = "
@@ -81,7 +81,7 @@
     }
     
     //Register
-	function register($userData) {
+	function registerUser($userData) {
         global $dbconnect;
    
         try {
@@ -110,7 +110,7 @@
             }
         
     //Update
-    function update($userData) {
+    function updateUser($userData) {
 		global $dbconnect;
 
 		try {

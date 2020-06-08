@@ -98,7 +98,7 @@
                 'id'         => $_SESSION['id'],
             ];
             
-            $result = update($userData);
+            $result = updateUser($userData);
 
             if ($result) {
                 $msg = '<div class="success_msg">Your account is updated.</div>';
@@ -108,7 +108,7 @@
         }     
     }
      // Fetch user by id
-     $user = fetchById('id');
+     $user = fetchUsersById('id');
 
 
 // output with JSON
