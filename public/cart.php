@@ -1,13 +1,13 @@
 <?php
 
-//unset($_SESSION['cartItems']);
 if(!isset($_SESSION['cartItems'])) {
 	$_SESSION['cartItems'] = [];
 }
-
+/*
 echo "<pre>";
 print_r($_SESSION['cartItems']);
 echo "</pre>";
+*/
 
 
 $cartItemCount = count($_SESSION['cartItems']);

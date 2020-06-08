@@ -2,19 +2,10 @@
      require('../../src/dbconnect.php');
  
 
-      try{
-            $stmt  = $dbconnect->query("SELECT * FROM products");
-            $posts = $stmt->fetchALL();
-         } catch (\PDOexception $e) {
-
-           throw new \PDOexception($e->getMessage(), $e->getCode());
-         };
-
-
 
     $title        = "";
     $description  = "";
-    $price        = "";
+    $price        = 0;
     $error        = "";
     $msg          = "";
 
@@ -37,6 +28,11 @@
 
         if(trim($_POST['price']) == ''){
           $error .= "<li class='list-group-item list-group-item-danger'>Price can not be empty</li>";
+
+        }
+
+        if(!is_numeric($_POST['price'])){
+          $error .= "<li class='list-group-item list-group-item-danger'>Price have to be a rounded number</li>";
 
         }
 
@@ -83,12 +79,13 @@
     <html>
     <head>
       <title>Admin</title>
+      <link rel="stylesheet" type="text/css" href="css/style.css"> 
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     </head>
     <body>
   <div class="container-fluid">
     <div class="row">
-      <div class="offset-1 col-10">
+      <div class="offset-3 col-6 newProductBox">
         <?=$msg?>
         <div class="form-group">
           <form id="newProduct" method="POST">
@@ -100,7 +97,7 @@
               <label for="description">Write description here</label> <br>
               <textarea rows="6" cols="50" name="description" form="newProduct"><?=$description?></textarea><br>
               <label for="price">Price</label><br>
-              <input type="text" name="price" id="" value="<?=$price?>">
+              <input type="number" name="price" id="" value="<?=$price?>">
             </p>
             <input type="submit" class='btn btn-info' name="addProduct" value="save">
             <input type="submit" class='btn btn-info' name="closeForm" value="close">

@@ -2,17 +2,11 @@
        require('../src/config.php');
        require('../src/dbconnect.php');
 
-
-      
-
-
          //$products = fetchAllProducts();
 
     
 ?>
 
-    
- 
         
       <?php 
       include('layout/header.php');
@@ -172,8 +166,7 @@
 
           });
 
-  
+   
 
-    
-  
 </script>
+
