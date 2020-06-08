@@ -17,7 +17,7 @@
         $email    = $_POST['email'];
         $password = $_POST['password'];
 
-        $user = fetchByEmail($email);
+        $user = fetchUsersByEmail($email);
 
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['first_name'] = $user['first_name'];

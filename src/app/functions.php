@@ -5,7 +5,7 @@
 	}
     
     //fetch all
-	function fetchAll() {
+	function fetchAllUsers() {
     	global $dbconnect;
 
         try {
@@ -19,7 +19,7 @@
     }
 
     // Fetch by id
-    function fetchById($id) {
+    function fetchUsersById($id) {
 	    global $dbconnect;
 
 	    try {
@@ -29,7 +29,7 @@
         WHERE id = :id";
 
         $stmt = $dbconnect->prepare($query);
-        $stmt->bindvalue(':id', $_SESSION['id']);
+        $stmt->bindvalue(':id', $id);
         $stmt->execute();
         
         $user = $stmt->fetch();
@@ -41,7 +41,7 @@
 	}
 
 	//Fetch by Email
-	function fetchByEmail($email) {
+	function fetchUsersByEmail($email) {
 	    global $dbconnect;
 
 	    try {
@@ -72,7 +72,7 @@
 	    ";
 
 	    $stmt = $dbconnect->prepare($query);
-	    $stmt->bindValue(':id', $_SESSION['id']);
+	    $stmt->bindValue(':id', $id);
 	    $stmt->execute();
 	  } catch (\PDOException $e) {
 	    throw new \PDOException($e->getMessage(), (int) $e->getCode());

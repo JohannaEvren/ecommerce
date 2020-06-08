@@ -2,7 +2,7 @@
     require('../src/config.php');
     require('../src/dbconnect.php');
 
-    $users = fetchAll();
+    $users = fetchAllUsers();
 
     $first_name      = '';
     $last_name       = '';
