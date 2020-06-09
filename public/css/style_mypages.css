@@ -1,0 +1,11 @@
+.submitBtns {
+	display: flex;
+}
+
+input[type=submit] {
+	background-color: #000;
+	border: none;
+	color: #FFF;
+	padding: 5px;
+	margin-left: 5px;
+}

@@ -1,3 +1,12 @@
+<?php 
+if (isset($_SESSION['first_name'])) {
+    echo '<style>.logedin { display:none;} .signuplink { display:none;} </style>';
+} else {
+	echo '<style>.logedout{ display:none;}</style>';
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="sv"> 
 <head>
@@ -18,8 +27,10 @@
 			
 			<nav class="menu">
 				<ul>
-					<a href="register.php"><li>SIGN UP</li></a>
-					<a href="login.php"><li>LOGIN</li></a>
+					<a class="logedin" href="register.php"><li>SIGN UP</li></a>
+					<a class="logedin" href="login.php"><li>LOG IN</li></a>
+					<a class="logedout" href="logout.php"><li>LOG OUT</li></a>
+					<a class="logedout" href="mypages.php"><li>MY PAGES</li></a>
 					<a href="admin/admin.php"><li>ADMIN</li></a>
 				</ul>
 			</nav>

@@ -6,8 +6,6 @@ require('../src/dbconnect.php');
 if (!isset($_SESSION['first_name'])) {
         redirect('login.php?mustLogin');
         exit;
-}else {
-  echo '<style>.loginbtns { display:none;}</style>';
 }
 
 //Show user info
@@ -15,6 +13,7 @@ if (isset($_SESSION['first_name'])){
     $user = fetchUsersById($_SESSION['id']);
 }
 
+include('layout/header.php');
 
 ?>
 <!DOCTYPE html>
@@ -22,26 +21,11 @@ if (isset($_SESSION['first_name'])){
 <head>
 	<meta charset="utf-8">
 	<title>My Pages</title>
+    <link rel="stylesheet" type="text/css" href="css/style_mypages.css">
 	<!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-	<header>
-        <div class="loginbtns">
-            <form action="register.php" method="POST">
-                <input type="submit" name="registerBtn" value="Register">
-            </form> 
-    		<form action="login.php" method="POST">
-                <input type="submit" name="loginBtn" value="Log in">
-            </form> 
-        </div>
-        <form action="logout.php" method="POST">
-            <input type="submit" name="tologoutBtn" value="Log out">
-        </form> 
-        <form action="products.php" method="POST">
-              <input type="submit" name="tohomeBtn" value="Home">
-        </form> 
-	</header>
 	<section id ="userinfo">
         <div class="row">
             <ul class="list-group list-group-flush col-sm-6">
@@ -57,14 +41,16 @@ if (isset($_SESSION['first_name'])){
                 <li class="list-group-item"><b>Register Date: </b><?=htmlentities($user['register_date'])?></li>
             </ul>
         </div>
-        <form action="update-user.php" method="GET">
-            <input type="hidden" name="id" value="<?=$user['id']?>">
-            <input type="submit" value="Update">
-        </form>
-        <form action="" method="POST">
-            <input type="hidden" name="id" value="<?=$user['id']?>">
-            <input type="submit" name="deleteUserBtn" value="Delete this account" class="delete-user-btn">
-        </form>
+        <div class="submitBtns">
+            <form action="update-user.php" method="GET">
+                <input type="hidden" name="id" value="<?=$user['id']?>">
+                <input type="submit" value="Update">
+            </form>
+            <form action="" method="POST">
+                <input type="hidden" name="id" value="<?=$user['id']?>">
+                <input type="submit" name="deleteUserBtn" value="Delete this account" class="delete-user-btn">
+            </form>
+        </div>
 	</section>
     <?php include "layout/footer.php";?>
      <!-- Optional JavaScript -->

@@ -6,9 +6,6 @@
 	box-sizing: border-box;
 }
 
-
-
-
 body header{ 
 	/*background-color: rgba(39,39,39,1);*/
 	color:black;
@@ -63,10 +60,11 @@ body a:hover{
 	
 }
 
-.container-fluid{
-	padding-left:0 !important;
-	padding-right:0 !important;
-}	
+.container-fluid {
+	padding-right: 0 !important;
+	padding-left: 0 !important;
+}
+
 
 /* CART STYLE */
 
@@ -101,27 +99,3 @@ span.badge-danger {
 span.text-info {
 	color: #E01A3B !important;
 }
-
-/* LOG IN */
-
-div.loginbox {
-	width: 40%;
-	margin: 0 auto;
-	background-color: rgba(95, 95, 95, 0.6);
-	padding: 30px;
-	margin-top: 60px;
-}
-
-input.login {
-	background-color: #000;
-	border: none;
-	color: #FFF;
-	width: 80px;
-	padding: 5px;
-}
-
-input.logintext {
-	width: 300px;
-	height: 35px;
-}
-

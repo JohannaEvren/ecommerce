@@ -19,7 +19,6 @@
 
 ?>
 <?php include "cart.php";?>
-
 <div class="container-fluid">
   <?php foreach ($products as $key => $products) { ?>
   <div class="row" name="showcard" value="<?=$products['id']?>">
@@ -54,7 +53,6 @@
     </div>
   </div>
 
-
   <?php } ?>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -64,9 +62,4 @@
 
   <?php  include "layout/footer.php" ?>
 </div>
-
-
-
-
-
 

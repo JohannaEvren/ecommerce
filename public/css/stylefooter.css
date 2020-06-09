@@ -1,6 +1,7 @@
 footer {
     height: 260px;
-    width: 100vw;
+    width: 100%;
+    margin-top: 10%;
 }
 
 footer h5 {
@@ -11,7 +12,7 @@ footer h5 {
 }
 
 footer {
-	background-color: #C6AFA3;
+	background-color: #B6987F;
 	border: none;
 }
 

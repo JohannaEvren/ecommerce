@@ -108,6 +108,7 @@
         }     
     }
      // Fetch user by id
+
      $user = fetchUsersById($_SESSION['id']);
 
 

@@ -127,61 +127,66 @@
                         
                     <!-- Visa errormeddelanden -->
                     <?=$msg?>
-                        
-                     <p>
-                        <label for="input1">Firstname:</label> <br>
-                        <input type="text" class="text" name="firstname" value="<?=htmlentities($first_name)?>">
-                    </p>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="input1">Firstname:</label> <br>
+                            <input type="text" class="form-control" name="firstname" value="<?=htmlentities($first_name)?>">
+                        </div>
 
-                    <p>
-                        <label for="input1">Lastname:</label> <br>
-                        <input type="text" class="text" name="lastname" value="<?=htmlentities($last_name)?>">
-                    </p>
+                        <div class="form-group col-md-4">
+                            <label for="input1">Lastname:</label> <br>
+                            <input type="text" class="form-control" name="lastname" value="<?=htmlentities($last_name)?>">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="input1">Email:</label> <br>
+                            <input type="text" class="form-control" name="email" value="<?=htmlentities($email)?>">
+                        </div>
 
-                    <p>
-                        <label for="input1">Email:</label> <br>
-                        <input type="text" class="text" name="email" value="<?=htmlentities($email)?>">
-                    </p>
+                        <div class="form-group col-md-4">
+                            <label for="input1">Phone:</label> <br>
+                            <input type="text" class="form-control" name="phone" value="<?=htmlentities($phone)?>">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="input1">Street:</label> <br>
+                            <input type="text" class="form-control" name="street" value="<?=htmlentities($street)?>">
+                        </div>
 
-                    <p>
-                        <label for="input1">Phone:</label> <br>
-                        <input type="text" class="text" name="phone" value="<?=htmlentities($phone)?>">
-                    </p>
+                        <div class="form-group col-md-4">
+                            <label for="input1">Postalcode:</label> <br>
+                            <input type="text" class="form-control" name="postalcode" value="<?=htmlentities($postal_code)?>">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="input1">City:</label> <br>
+                            <input type="text" class="form-control" name="city" value="<?=htmlentities($city)?>">
+                        </div>
 
-                    <p>
-                        <label for="input1">Street:</label> <br>
-                        <input type="text" class="text" name="street" value="<?=htmlentities($street)?>">
-                    </p>
+                        <div class="form-group col-md-4">
+                            <label for="input1">Country:</label> <br>
+                            <input type="text" class="form-control" name="country" value="<?=htmlentities($country)?>">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="input2">Password:</label> <br>
+                            <input type="password" class="form-control" name="password">
+                        </div>
 
-                    <p>
-                        <label for="input1">Postalcode:</label> <br>
-                        <input type="text" class="text" name="postalcode" value="<?=htmlentities($postal_code)?>">
-                    </p>
-
-                    <p>
-                        <label for="input1">City:</label> <br>
-                        <input type="text" class="text" name="city" value="<?=htmlentities($city)?>">
-                    </p>
-
-                    <p>
-                        <label for="input1">Country:</label> <br>
-                        <input type="text" class="text" name="country" value="<?=htmlentities($country)?>">
-                    </p>
-
-                    <p>
-                        <label for="input2">Password:</label> <br>
-                        <input type="password" class="text" name="password">
-                    </p>
-
-                    <p>
-                        <label for="input2">Confirm Password:</label> <br>
-                        <input type="password" class="text" name="confirmPassword">
-                    </p>
-
+                        <div class="form-group col-md-4">
+                            <label for="input2">Confirm Password:</label> <br>
+                            <input type="password" class="form-control" name="confirmPassword">
+                        </div>
+                    </div>
                     <p>
                         <input type="submit" name="register" value="Register">
                     </p>
                 </fieldset>
             </form>
     </div>
+    <?php include "layout/footer.php";?>
 </html>

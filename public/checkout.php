@@ -117,13 +117,16 @@
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
+                  <label for="inputPassword4">Phone</label>
+                  <input type="text" class="form-control" name="phone" id="inputPassword4">
+                </div>
+                <div class="form-group col-md-3">
                   <label for="inputCity">City</label>
                   <input type="text" name="city" class="form-control" id="inputCity">
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                   <label for="inputState">country</label>
-                  <select id="inputState" name="country" class="form-control">
-                    
+                  <select id="inputState" name="country" class="form-control">  
                     <option>SWEDEN</option>
                   </select>
                 </div>
@@ -142,13 +145,8 @@
               </div>
               <button type="submit" name="createOrderBtn" class="btn btn-primary">confirm order</button>
             </form>
-
-
-
-
-
-
         </div>
+        <?php include "layout/footer.php";?>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
             <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
