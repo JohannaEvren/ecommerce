@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli:ital,wght@1,300&family=Open+Sans+Condensed:wght@300&display=swap');
+
 *{
 	margin:0; 
 	padding:0;
 	box-sizing: border-box;
+	font-family: 'Muli', sans-serif;
 
 }
 nav{
@@ -41,27 +44,80 @@ ul a {
 body .adminField {
 	background-color:#E6E6E6;
 	height:80vh;
+	margin-top: 50px;
 	padding:0 50px 0 50px;
-
-
-	
 
 }
 
 
+.prodBox, .userBox {
+	text-align: center;
+	background-color: #E6E6E6;
+	height:500px;
+	margin:20px;	
+	margin-top:100px;
+	padding:200px;
+	font-size: 25px;
+	border: 2px solid black;
+}
+
+.sucsessMessage{
+	margin-right:100px;
+}
+
+.prodBox a, .userBox a {
+	color:black;
+	text-decoration: none;
+}
+
+
+.prodBox a:hover, .userBox a:hover {
+	color:grey;
+	text-decoration: none;
+}
+
+
 .inNav{
+	width:100%;
+	padding-top:20px;
 	display: flex;
-	justify-content: flex-end;
+	justify-content: space-between;
+	margin-bottom: 50px;
 }
 
 .adminField a{
 	text-decoration: none;
 	color:black;
-	margin:10px;
-	text-align: right;
+	/*margin:10px;
+	text-align: right;*/
 }
 
-
-body h3{
+.newProductBox, .newUserBox{
+	background-color: grey;
+	padding:20px;
+	margin-top:100px;
+	color:white;
+	font-size: 20px;
 	text-align: center;
 }
+
+.btn-dark {
+	margin-top: 10px;
+}
+
+button.btn.btn-dark {
+	background-color: #5F5F5F;
+	border: none;
+	margin: 15px;
+}
+
+.btn.btn-info:focus {
+	background-color: #5F5F5F;
+}
+
+.btn.btn-info:hover{
+	background-color: #5F5F5F;
+}
+
+
+

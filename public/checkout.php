@@ -17,9 +17,8 @@
 
     <nav>
           <ul>
-            <li><a href="adminUsers.php">USER ADMINISTRATION</a></li>
-            <li><a href="adminProduct.php">PRODUCT ADMINISTRATION</a></li>
-            <li><a href="../index.php">BACK TO SHOP</a></li>
+            
+            <li><a href="products.php">CONTINUE SHOPPING</a></li>
           </ul>
       </nav>
 
@@ -90,33 +89,31 @@
               <input type="hidden" name="totalPrice" value="<?=$cartTotalSum?>">
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputEmail4">First Name</label>
-                  <input type="text" class="form-control" name="firstName" id="inputEmail4">
+                  <label for="inputFname">First Name</label>
+                  <input type="text" class="form-control" name="firstName" id="inputFname">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputPassword4">Last Name</label>
-                  <input type="text" class="form-control" name="lastName" id="inputPassword4">
+                  <label for="inputLname">Last Name</label>
+                  <input type="text" class="form-control" name="lastName" id="inputLname">
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputEmail4">Email</label>
-                  <input type="text" class="form-control" name="email" id="inputEmail4">
+                  <label for="inputEmail">Email</label>
+                  <input type="text" class="form-control" name="email" id="inputEmail">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputAddress2">Password</label>
-                  <input type="text" class="form-control" id="inputAddress2" name="password">
+                  <label for="inputPhone">Phone</label>
+                  <input type="text" class="form-control" name="phone" id="inputPhone">
                 </div>
               </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="inputAddress2">Address</label>
-                  <input type="text" class="form-control" id="inputAddress2" name="adress" placeholder="Apartment, studio, or floor">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputZip">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
-                </div>
+              <div class="form-group">
+                <label for="inputAddress">Address</label>
+                <input type="text" class="form-control" id="inputAddress" name="adress" placeholder="Apartment, studio, or floor">
+              </div>
+              <div class="form-group">
+                <label for="inputPassword">Password</label>
+                <input type="text" class="form-control" id="inputPassword" name="password" placeholder="Apartment, studio, or floor">
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
@@ -125,13 +122,17 @@
                 </div>
                 <div class="form-group col-md-3">
                   <label for="inputCity">City</label>
-                  <input type="text" class="form-control" id="inputCity">
+                  <input type="text" name="city" class="form-control" id="inputCity">
                 </div>
                 <div class="form-group col-md-3">
                   <label for="inputState">country</label>
-                  <select id="inputState" class="form-control"> 
+                  <select id="inputState" name="country" class="form-control">  
                     <option>SWEDEN</option>
                   </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="inputZip">Zip</label>
+                  <input type="text" name="postal_code" class="form-control" id="inputZip">
                 </div>
               </div>
               <div class="form-group">
@@ -142,7 +143,7 @@
                   </label>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary">confirm order</button>
+              <button type="submit" name="createOrderBtn" class="btn btn-primary">confirm order</button>
             </form>
         </div>
         <?php include "layout/footer.php";?>

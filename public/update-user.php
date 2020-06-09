@@ -29,7 +29,7 @@
     <body>
         <div id="content">
             <header>
-                <form action="index.php" method="POST">
+                <form action="products.php" method="POST">
                   <input type="submit" name="homeBtn" value="Home">
                 </form> 
                 <form action="logout.php" method="POST">

@@ -3,6 +3,22 @@
 	    header("Location: {$location}");
 	    exit;
 	}
+
+
+
+    function fetchAllProducts(){
+          global $dbconnect;
+
+           try{
+                $stmt  = $dbconnect->query("SELECT * FROM products");
+                $products = $stmt->fetchALL();
+              } catch (\PDOexception $e) {
+                  throw new \PDOexception($e->getMessage(), $e->getCode());
+              };
+
+                return $products;
+        } 
+
     
     //fetch all
 	function fetchAllUsers() {
@@ -19,6 +35,7 @@
     }
 
     // Fetch by id
+
     function fetchUsersById($id) {
 	    global $dbconnect;
 
@@ -29,7 +46,7 @@
         WHERE id = :id";
 
         $stmt = $dbconnect->prepare($query);
-        $stmt->bindvalue(':id', $_SESSION['id']);
+        $stmt->bindvalue(':id', $id);
         $stmt->execute();
         
         $user = $stmt->fetch();
@@ -62,6 +79,31 @@
 	        return $user;
 	       }
 
+
+
+           function createAjax($serverData){
+  
+                return jason_encode($serverData);
+
+             }   
+
+
+
+
+        function deleteProduct($productId){
+            
+            global $dbconnect;
+
+            try{
+                $query = "DELETE FROM products WHERE id = :id;";
+                $stmt  = $dbconnect->prepare($query);
+                $stmt->bindValue(':id', $productId);
+                $stmt->execute();
+                } catch (\PDOexception $e) {
+                  throw new \PDOexception($e->getMessage(), (int) $e->getCode());
+              };
+            };
+
 	//Delete
     function deleteMyUser($id) {
     	global $dbconnect;
@@ -72,13 +114,29 @@
 	    ";
 
 	    $stmt = $dbconnect->prepare($query);
-	    $stmt->bindValue(':id', $_SESSION['id']);
+	    $stmt->bindValue(':id', $id);
 	    $stmt->execute();
 	  } catch (\PDOException $e) {
 	    throw new \PDOException($e->getMessage(), (int) $e->getCode());
 	  }
 	  
     }
+
+
+    function deleteUser($userId){
+        global $dbconnect;
+
+   try{
+        $query = "DELETE FROM users WHERE id = :id;";
+        $stmt  = $dbconnect->prepare($query);
+        $stmt->bindValue(':id', $userId);
+        $stmt->execute();
+        } catch (\PDOexception $e) {
+          throw new \PDOexception($e->getMessage(), (int) $e->getCode());
+      };
+
+}
+
     
     //Register
 	function registerUser($userData) {
@@ -138,5 +196,15 @@
 
 		    return $result;
 		}
+
+
+        function printVariables($variable) {
+      
+                  echo "<pre>";
+                  print_r($variable);
+                  echo "</pre>";
+
+            }
+
 
 ?>

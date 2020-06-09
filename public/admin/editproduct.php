@@ -83,7 +83,7 @@ require('../../src/dbconnect.php');
                           throw new \PDOexception($e->getMessage(), (int) $e->getCode());
                     };
                     
-                      header('location: index.php');
+                      header('location: adminProduct.php');
 
                     }
                  };
@@ -109,12 +109,12 @@ require('../../src/dbconnect.php');
 
 
         //CLOSE EDIT AND GO BACK TO THE ADMIN-PAGE / BLOGPOST
-       if(isset($_POST['closeBlogForm'])){
+       if(isset($_POST['closeEditProducts'])){
 
     
 
             
-              header('location: index.php');
+              header('location: adminProduct.php');
                 
         }
 
@@ -124,12 +124,13 @@ require('../../src/dbconnect.php');
     <html>
     <head>
       <title>Admin</title>
+       <link rel="stylesheet" type="text/css" href="css/style.css"> 
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     </head>
     <body>
   <div class="container-fluid">
     <div class="row">
-      <div class="offset-1 col-10">
+      <div class="offset-3 col-6 newProductBox">
         <?=$msg ?><br>
         <div class="form-group">
           <form id="blogpost" method="POST">
@@ -145,7 +146,7 @@ require('../../src/dbconnect.php');
               </p>
               <input type="submit" class='btn btn-info' name="saveBlogPost" value="save">
               <input type='hidden' name='postid' value='<?=$product['id']?>'>
-              <input type="submit" class='btn btn-info' name="closeBlogForm" value="close & delete your post">
+              <input type="submit" class='btn btn-info' name="closeEditProducts" value="close & delete your changes">
           </form>
       </div>
     </div>

@@ -8,7 +8,7 @@ $(document).ready(function() {
 		console.log(id.val());
 		$.ajax({
 			method: 'POST',
-			url: 'deletemyaccount.php',
+			url: 'deletemyaccount_ajax.php',
 			data: { 
 				deleteUserBtn: true, 
 				id: id.val() 
@@ -40,7 +40,7 @@ $(document).ready(function() {
 		// console.log(pun.val());
 		$.ajax({
 			method: 'POST',
-			url: 'updateuser.php',
+			url: 'updateuser_ajax.php',
 			data: { 
 				register: true, 
 				first_name: first_name.val(),
