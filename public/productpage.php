@@ -1,5 +1,6 @@
 <?php
-    
+
+      require('../src/config.php');  
       require('../src/dbconnect.php');
       
       
@@ -17,6 +18,7 @@
 
 
      include "layout/header.php";
+     include "cart.php";
     
 
     $title            = "";
@@ -28,21 +30,25 @@
 
 
 <div class="row" name="showcard" value="<?=$products['id']?>">
+
   <div class="col-sm-4" style="width: 6rem; height: 6rem;">
     <div class="card">
       <div class="card-body">
       <img class="card-img-top" src="..." alt="Card image cap">
         <h5 class="card-title"><?=htmlentities($products['title'])?></h5>
         <p class="card-text"><?=htmlentities($products['description'])?></p>
-        <span><?=htmlentities($products['price'])?></span>
+        <span><?=htmlentities($products['price'])?>kr</span>
+        
         <form action="add-cart-item.php" method="POST">
-<input type="hidden" name="productId" value = "<?=$text['id']?>">
-<input type="number" name="quantity" value ="1" min= "0">
-<input type="submit" name="addToCart" value = "Add To Cart">
+        <input type="hidden" name="productId" value =  "<?=$products['id']?>">
+        <input type="number" name="quantity" value ="1" min= "0">
+        <input type="submit" name="addToCart" value = "Add To Cart">
 
 </form>
       </div>
       </div>
     </div>
   </div>
+  ?>
+
 
