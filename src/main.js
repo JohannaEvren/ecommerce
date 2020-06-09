@@ -66,10 +66,10 @@ function deleteUserAjax(f) {
 		                      '<td>' + product["title"] + '</td>' +
 		                      '<td>' + product["description"] + ' </td>' + 
 		                      '<td>' + product["price"] + ' SEK' + ' </td>'+ 
-		                      '<form action="editproduct.php" method="GET">' + 
-		                      	'<td><input type="submit" class="btn btn-info editProd" name="edit" value="EDIT"></td> ' + 
+		                      '<td><form action="editproduct.php" method="GET">' + 
+		                      	'<input type="submit" class="btn btn-info editProd" name="edit" value="EDIT">' + 
 		                      	'<input type="hidden" name="postid" value="' + product["id"]+ '">' +
-		                      '</form>' + 
+		                      '</form></td>' + 
 		                      '<form method="POST">' + 
 		                          '<td><input type="submit" class="btn btn-info delete-prod-btn" id="delete-btn" name="delete" value="DELETE"></td>' +
 		                          '<input type="hidden" name="postid" value="' + product["id"] + '">' + 
@@ -78,12 +78,8 @@ function deleteUserAjax(f) {
 
 					};
 					productList.html(html);
-					$('.delete-prod-btn').on('click', deleteProductAjax)
-					$('.editProd').on('click', function(e){
-
-							e.preventDefault();
-							$(this).submit();
-					})
+					$('.delete-prod-btn').on('click', deleteProductAjax);
+					
 
 		
 	}

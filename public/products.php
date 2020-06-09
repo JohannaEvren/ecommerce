@@ -19,7 +19,7 @@
 
 ?>
 <?php include "cart.php";?>
-<div class="container" style="width: 100%">
+<div class="container-fluid" style="width: 100%">
   <?php foreach ($products as $key => $text) { ?>
   <div class="row" name="showcard" value="<?=$text['id']?>">
     <div class="col-sm-4 border p-4 d-flex flex-column" >
@@ -54,5 +54,5 @@
 
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-  <?php } include"layout/footer.php" ?>
+  <?php  include"layout/footer.php" ?>
 </div>

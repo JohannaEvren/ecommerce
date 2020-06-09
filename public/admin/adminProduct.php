@@ -48,10 +48,12 @@
                                       <td><?=$product['title']?></td>
                                       <td><?=$product['description']?></td>
                                       <td><?=$product['price']?> SEK</td>
-                                        <form action="editproduct.php" method='GET'>
-                                            <td><input type='submit' class='btn btn-info' name='edit' value='EDIT'></td> 
+                                        <td>
+                                          <form action="editproduct.php" method='GET'>
+                                            <input type='submit' class='btn btn-info' name='edit' value='EDIT'>
                                             <input type='hidden' name='postid' value='<?=$product['id']?>'>
-                                        </form>
+                                          </form>
+                                        </td> 
                                         <form method="POST">
                                             <td><input type='submit' class='btn btn-info delete-prod-btn' id="delete-btn" name='delete' value='DELETE'></td>
                                             <input type='hidden' name='postid' value='<?=$product['id']?>'>
