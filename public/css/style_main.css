@@ -7,6 +7,8 @@
 }
 
 
+
+
 body header{ 
 	/*background-color: rgba(39,39,39,1);*/
 	color:black;
@@ -36,6 +38,7 @@ body hr{
 			justify-content: space-around;
 
 		}
+	
 
 
 body nav ul li{margin:20px;} 
@@ -59,6 +62,11 @@ body a:hover{
 	justify-content: flex-end;
 	
 }
+
+.container-fluid{
+	padding-left:0 !important;
+	padding-right:0 !important;
+}	
 
 /* CART STYLE */
 

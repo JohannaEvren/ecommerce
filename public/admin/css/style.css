@@ -101,4 +101,23 @@ body .adminField {
 	text-align: center;
 }
 
+.btn-dark {
+	margin-top: 10px;
+}
+
+button.btn.btn-dark {
+	background-color: #5F5F5F;
+	border: none;
+	margin: 15px;
+}
+
+.btn.btn-info:focus {
+	background-color: #5F5F5F;
+}
+
+.btn.btn-info:hover{
+	background-color: #5F5F5F;
+}
+
+
 
