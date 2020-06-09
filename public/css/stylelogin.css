@@ -1,0 +1,20 @@
+div.loginbox {
+	width: 40%;
+	margin: 0 auto;
+	background-color: rgba(95, 95, 95, 0.6);
+	padding: 30px;
+	margin-top: 60px;
+}
+
+input.login {
+	background-color: #000;
+	border: none;
+	color: #FFF;
+	width: 80px;
+	padding: 5px;
+}
+
+input.logintext {
+	width: 300px;
+	height: 35px;
+}

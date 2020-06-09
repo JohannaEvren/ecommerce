@@ -48,7 +48,7 @@ foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
                 <?php } ?>
 			    <div class="row">
 			    	<div class="col-lg-12 col-sm-12 col-12 text-center checkout">
-			    		<a href="#" class="btn btn-primary btn-block">Shop</a>
+			    		<a href="checkout.php" class="btn btn-dark btn-block">Shop</a>
 			    	</div>
 			    </div>
     	    </div>
