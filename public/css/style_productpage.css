@@ -1,0 +1,112 @@
+body {
+  padding: 100px 0;
+}
+
+/* Override Bootstrap CSS */
+.thumbnail {
+  padding: 0;
+  border: none;
+  position: relative;
+  -webkit-box-shadow: 0px 0px 40px 0px rgba(218, 218, 218, 1);
+  -moz-box-shadow: 0px 0px 40px 0px rgba(218, 218, 218, 1);
+  box-shadow: 0px 0px 40px 0px rgba(218, 218, 218, 1);
+}
+
+/* Add new CSS */
+.remove-paddings-and-margins {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  -webkit-transition: all 150ms ease;
+  -moz-transition: all 150ms ease;
+  -ms-transition: all 150ms ease;
+  -o-transition: all 150ms ease;
+  transition: all 150ms ease;
+}
+a:hover {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; /* IE 8 */
+  filter: alpha(opacity=50); /* IE7 */
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+.top {
+  padding: 30px;
+  font-size: 24px;
+}
+
+.middle {
+  padding: 0 30px;
+  font-size: 14px;
+}
+
+.bottom {
+  padding: 30px;
+  position: relative;
+}
+
+h3 {
+  margin: 0;
+}
+
+ul.product-description {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  /*
+    border-top:1px solid #cdcdcd;
+    border-bottom:1px solid #cdcdcd;
+    */
+}
+
+ul.product-description li {
+  line-height: 2;
+}
+
+ul.product-description li i {
+  color: #ffc007;
+  font-size: 1.25em;
+  line-height: 2;
+}
+
+.add-btn {
+  background: #000;
+  color: #fff;
+  display: block;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.shop-buttons a:first-of-type {
+  background: #f6f6f6;
+  color: #000;
+  display: inline-block;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.shop-buttons .pricing {
+  font-size: 1.5em;
+  font-weight: 700;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+/* Footer */
+.footer {
+  margin: auto;
+  width: 100%;
+  max-width: 960px;
+  display: block;
+  font-size: 0.69rem;
+}
+.footer,
+.footer a {
+  color: #c9e4f7;
+}
+
+input {
+}
