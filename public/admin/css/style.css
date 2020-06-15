@@ -29,6 +29,11 @@ ul a {
 	margin:15px;
 }
 
+ul a:hover{
+	text-decoration: none;
+	color:white;
+}
+
 
 .container-fluid{
 	margin:0;
@@ -42,7 +47,7 @@ ul a {
 
 
 body .adminField {
-	background-color:#E6E6E6;
+	background-color:white;
 	height:80vh;
 	margin-top: 50px;
 	padding:0 50px 0 50px;
@@ -111,13 +116,15 @@ button.btn.btn-dark {
 	margin: 15px;
 }
 
-.btn.btn-info:focus {
-	background-color: #5F5F5F;
+
+
+body tr{
+	border:2px solid black;
 }
 
-.btn.btn-info:hover{
-	background-color: #5F5F5F;
+
+body td{
+	border:2px solid black;
+
 }
-
-
 

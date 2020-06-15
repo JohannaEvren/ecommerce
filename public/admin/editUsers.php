@@ -27,7 +27,7 @@ require('../../src/dbconnect.php');
             $country = trim($_POST['country']);
             $password = trim($_POST['password']);
             $confirmPassword = trim($_POST['confirmPassword']);
-            $id      = $_GET['userid'];
+            $id      = $_GET['postid'];
 
 
             $users = fetchAllUsers();
@@ -100,7 +100,7 @@ require('../../src/dbconnect.php');
                 'id'         => $id,
             ];
             
-            update($userData);
+           updateUser($userData);
             header('location: adminUsers.php');
               
     };
@@ -175,9 +175,9 @@ require('../../src/dbconnect.php');
                 <input type="password" name="confirmPassword" id="" value="">
               </p>
               
-              <input type="submit" class='btn btn-info' name="saveEditUser" value="save">
+              <input type="submit" class='btn btn-dark' name="saveEditUser" value="save">
               <input type='hidden' name='postid' value='<?=$user['id']?>'>
-              <input type="submit" class='btn btn-info' name="closeEditUser" value="close & delete your changes">
+              <input type="submit" class='btn btn-dark' name="closeEditUser" value="close & delete your changes">
           </form>
       </div>
     </div>

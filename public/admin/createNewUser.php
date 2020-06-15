@@ -108,7 +108,7 @@
                 ];
 
 
-               register($userData);
+              registerUser($userData);
                //MÅSTE BYTA NAMN PÅ FUNKTIONENE!!!!!!
   
                header('Location: adminUsers.php?sucsessNew=yes');
@@ -178,8 +178,8 @@
                 <input type="password" name="confirmPassword" id="" value="<?=$confirmPassword?>">
               </p>
               
-              <input type="submit" class='btn btn-info' name="addUser" value="save">
-              <input type="submit" class='btn btn-info' name="closeForm" value="close">
+              <input type="submit" class='btn btn-dark' name="addUser" value="save">
+              <input type="submit" class='btn btn-dark' name="closeForm" value="close">
 
 
 

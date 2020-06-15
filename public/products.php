@@ -26,7 +26,7 @@
   <div style="display:inline-block; border:solid 1px #808080; padding:15px">
       <div class="card">
         <div class="card-body">
-        <img class="card-img-top" src="." alt="Card image cap">
+        <img class="card-img-top" src="img/bord.jpeg" alt="Card image cap">
           <h5 class="card-title"><?=htmlentities($products['title'])?></h5>
           <p class="card-text"><?=htmlentities($products['description'])?></p>
           <div class="price-info"><?=htmlentities($products['price'])?></div>
@@ -40,7 +40,7 @@
   <form action="add-cart-item.php" method="POST">
 
 
-  <input type="hidden" name="productId" value = "<?=$products['id']?>">
+  <input type="hidden" name="productId" value="<?=$products['id']?>">
 
   <input type="number" name="quantity" value ="1" min= "0">
   <input type="submit" name="addToCart" value = "Add To Cart">
