@@ -5,11 +5,11 @@
     $msg = "";
 
     if (isset($_GET['logout'])) {
-        $msg = '<div class="success_msg">You been logged out.</div>';
+        $msg = '<div class="alert alert-success col-12">You been logged out.</div>';
     }
 
     if (isset($_GET['mustLogin'])) {
-        $msg = '<div class="error_msg">You need to login to see this page.</div>';
+        $msg = '<div class="alert alert-danger">You need to login to see this page.</div>';
     }
 
     if (isset($_POST['doLogin'])) {
@@ -25,7 +25,7 @@
             redirect('mypages.php');
             exit;
         } else {
-            $msg = '<div class="error_msg">Incorrect login information. Please try again.</div>';
+            $msg = '<div class="alert alert-danger">Incorrect login information. Please try again.</div>';
         }
          
     }
@@ -60,12 +60,12 @@
                     <?=$msg?>
                         
                     <p>
-                        <label for="input1"><b>Email:</b></label> <br>
+                        <label for="input1">Email:</label> <br>
                         <input type="text" class="logintext" name="email">
                     </p>
 
                     <p>
-                        <label for="input2"><b>Password:</b></label> <br>
+                        <label for="input2">Password:</label> <br>
                         <input type="password" class="logintext" name="password">
                     </p>
 

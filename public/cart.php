@@ -37,11 +37,11 @@ foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
                 <?php foreach ($_SESSION['cartItems'] as $cartId => $cartItem) { ?>
 	            	<div class="row cart-detail">
 				    	<div class="col-lg-4 col-sm-4 col-4 cart-detail-img">
-				    		<img src="img/<?=$cartItem['img_url']?>">
+				    		<img class="cartimg" src="img/example.jpg">
 				    	</div>
 				    	<div class="col-lg-8 col-sm-8 cart-detail-product">
-				    		<p><?=$cartItem['title']?></p>
-				    		<span class="price text-info"> <?=$cartItem['price']?> $</span> <span class="count"> Quantity: <?=$cartItem['quantity']?></span>
+				    		<span><b><?=$cartItem['title']?></b></span><span class="price text-info"> <?=$cartItem['price']?> $</span> 
+				    		<p>Quantity: <b><?=$cartItem['quantity']?></b></p>
 				    	</div>
 			        </div>
                 <?php } ?>

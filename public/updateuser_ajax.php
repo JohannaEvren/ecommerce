@@ -33,55 +33,55 @@
         $confirmPassword = trim($_POST['confirmPassword']);
 
         if (empty($first_name)) {
-            $error .= "<li>Firstname is mandatory</li>";
+            $error .= "<li class='list-group-item list-group-item-danger'>Firstname is mandatory</li>";
         }
 
         if (empty($last_name)) {
-            $error .= "<li>Lastname is mandatory</li>";
+            $error .= "<li class='list-group-item list-group-item-danger'>Lastname is mandatory</li>";
         }
 
         if (empty($email)) {
-            $error .= "<li>Lastname is mandatory</li>";
+            $error .= "<li class='list-group-item list-group-item-danger'>Lastname is mandatory</li>";
         }
 
         if (empty($phone)) {
-            $error .= "<li>Phone is mandatory</li>";
+            $error .= "<li class='list-group-item list-group-item-danger'>Phone is mandatory</li>";
         }
 
         if (empty($street)) {
-            $error .= "<li>Street is mandatory</li>";
+            $error .= "<li class='list-group-item list-group-item-danger'>Street is mandatory</li>";
         }
 
         if (empty($postal_code)) {
-            $error .= "<li>Postalcode is mandatory</li>";
+            $error .= "<li class='list-group-item list-group-item-danger'>Postalcode is mandatory</li>";
         }
 
         if (empty($city)) {
-            $error .= "<li>City is mandatory</li>";
+            $error .= "<li class='list-group-item list-group-item-danger'>City is mandatory</li>";
         }
 
         if (empty($country)) {
-            $error .= "<li>Country is mandatory</li>";
+            $error .= "<li class='list-group-item list-group-item-danger'>Country is mandatory</li>";
         }
 
         if (empty($password) || empty($confirmPassword)) {
-            $error .= "<li>Password is mandatory</li>";
+            $error .= "<li class='list-group-item list-group-item-danger'>Password is mandatory</li>";
         }
 
         if (!empty($password) && strlen($password) < 6) {
-            $error .= "<li>Password is mandatory and need to be at least 6 characters long</li>";
+            $error .= "<li class='list-group-item list-group-item-danger'>Password is mandatory and need to be at least 6 characters long</li>";
         }
 
         if ($confirmPassword !== $password) {
-            $error .= "<li>Password don´t match</li>";
+            $error .= "<li class='list-group-item list-group-item-danger'>Password don´t match</li>";
         }
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $error .= "<li>Invalid email</li>";
+            $error .= "<li class='list-group-item list-group-item-danger'>Invalid email</li>";
         }
 
         if ($error) {
-            $msg = "<ul class='error_msg'>{$error}</ul>";
+            $msg = "<ul class='list-group col-8'>{$error}</ul>";
         }
 
         if (empty($error)) {
@@ -101,15 +101,12 @@
             $result = updateUser($userData);
 
             if ($result) {
-                $msg = '<div class="success_msg">Your account is updated.</div>';
+                $msg = '<div class="alert alert-success col-8">Your account is updated.</div>';
             } else {
-                $msg = '<div class="error_msg">Update failed. Please try again later!</div>';
+                $msg = '<div class="alert alert-danger>Update failed. Please try again later!</div>';
             }
         }     
     }
-     // Fetch user by id
-
-     $user = fetchUsersById($_SESSION['id']);
 
 
 // output with JSON
