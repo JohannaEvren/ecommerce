@@ -26,19 +26,23 @@
                     <div class="row">
                         <div class="inNav">
                           <h3>Manage users here</h3>
-                        <a href="createNewProduct.php" style="color:white;"><button class="btn btn-info">Create new</button></a>
+                        <a href="createNewProduct.php"><button class="btn btn-dark">Create new</button></a>
                         </div>
                         <br><br>
                        <?=$sucsess?> 
                     </div> 
                     <div class="row">
                         <div class="col-12">
-                            <table class="table table-dark" style="width:100%">
+                            <table class="table table-bordered" >
+                               <thead class="thead-dark">
                                 <tr>
                                     <th>TITLE</th>
                                     <th>DESCRIPTION</th>
                                     <th>PRICE</th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
+                              </thead>
                                 <tbody id="ProdList">
                                 <?php 
 
@@ -50,14 +54,14 @@
                                       <td><?=$product['price']?> SEK</td>
                                         <td>
                                           <form action="editproduct.php" method='GET'>
-                                            <input type='submit' class='btn btn-info' name='edit' value='EDIT'>
+                                            <input type='submit' class='btn btn-dark' name='edit' value='EDIT'>
                                             <input type='hidden' name='postid' value='<?=$product['id']?>'>
                                           </form>
                                         </td> 
-                                        <form method="POST">
-                                            <td><input type='submit' class='btn btn-info delete-prod-btn' id="delete-btn" name='delete' value='DELETE'></td>
+                                       <td><form method="POST">
+                                            <input type='submit' class='btn btn-dark delete-prod-btn' id="delete-btn" name='delete' value='DELETE'>
                                             <input type='hidden' name='postid' value='<?=$product['id']?>'>
-                                        </form>
+                                        </form></td>
                                   </tr> 
                              <?php }; ?>
 

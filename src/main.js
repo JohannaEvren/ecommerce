@@ -67,11 +67,11 @@ function deleteUserAjax(f) {
 		                      '<td>' + product["description"] + ' </td>' + 
 		                      '<td>' + product["price"] + ' SEK' + ' </td>'+ 
 		                      '<td><form action="editproduct.php" method="GET">' + 
-		                      	'<input type="submit" class="btn btn-info editProd" name="edit" value="EDIT">' + 
+		                      	'<input type="submit" class="btn btn-dark editProd" name="edit" value="EDIT">' + 
 		                      	'<input type="hidden" name="postid" value="' + product["id"]+ '">' +
 		                      '</form></td>' + 
 		                      '<form method="POST">' + 
-		                          '<td><input type="submit" class="btn btn-info delete-prod-btn" id="delete-btn" name="delete" value="DELETE"></td>' +
+		                          '<td><input type="submit" class="btn btn-dark delete-prod-btn" id="delete-btn" name="delete" value="DELETE"></td>' +
 		                          '<input type="hidden" name="postid" value="' + product["id"] + '">' + 
 		                       '</form>' +    
 	                       '</tr> ';                    
@@ -100,12 +100,12 @@ function deleteUserAjax(f) {
 					                      '<td>' + user["register_date"] + ' </td>' + 
 					                      '<td>' + user["id"] + ' </td>' + 
 					                     
-					                      '<form action="editUsers.php" method="GET">' + 
-					                      	'<td><input type="submit" class="btn btn-info" name="edit" value="EDIT"></td>' + 
+					                      '<td><form action="editUsers.php" method="GET">' + 
+					                      	'<input type="submit" class="btn btn-dark" name="edit" value="EDIT">' + 
 					                      	'<input type="hidden" name="postid" value="' + user["id"]+ '">' +
-					                      '</form>' + 
+					                      '</form></td>' + 
 					                      '<form method="POST">' + 
-					                          '<td><input type="submit" class="btn btn-info delete-user-btn" id="delete-btn" name="delete" value="DELETE"></td>' +
+					                          '<td><input type="submit" class="btn btn-dark delete-user-btn" id="delete-btn" name="delete" value="DELETE"></td>' +
 					                          '<input type="hidden" name="postid" value="' + user["id"] + '">' + 
 					                       '</form>' +    
 				                       '</tr> '; 

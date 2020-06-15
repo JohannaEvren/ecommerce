@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli:ital,wght@1,300&family=Open+Sans+Condensed:wght@300&display=swap');
+
+body {
+	overflow-x: hidden;
+}
+
+form {
+    width: 80%;
+    margin: 5% 0 0 23%;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+legend {
+	font-family: 'Muli', sans-serif;
+}
+
+input[type=submit] {
+	background-color: #000;
+	border: none;
+	color: #FFF;
+	padding: 5px 10px;
+	font-family: 'Muli', sans-serif;
+}
+

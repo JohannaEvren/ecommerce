@@ -41,7 +41,7 @@
              
                 <div class="inNav">
                  <h3>Manage users here</h3>
-                <a href="createNewUser.php" style="color:white;"><button class="btn btn-info">Create new</button></a>
+                <a href="createNewUser.php" style="color:white;"><button class="btn btn-dark">Create new</button></a>
                 </div>
                   <br><br>
                   
@@ -50,13 +50,19 @@
                  </div> 
             <div class="row">
               <div class=" col-12">
-                <table class="table table-dark" style="width:100%">
+                <table class="table table-bordered">
+                 
+                 <thead class="thead-dark">
                    <tr>
                       <th>FIRST NAME</th>
                       <th>LAST NAME</th>
                       <th>MEMBER SINCE</th>
                       <th>MEMBER ID</th>
+                      <th></th>
+                      <th></th>
                     </tr>
+                  </thead>
+                
               <tbody id="userList">
 
                   <?php 
@@ -72,16 +78,21 @@
                               <td><?=$registerDate?></td>
                               <td><?=$user['id']?></td>
 
-                              <form action="editusers.php" method='GET'>
-                              <td><input type='submit' class='btn btn-info' name='edit' value='EDIT'></td> 
-                              <input type='hidden' name='postid' value='<?=$user['id']?>'>
-                              </form>
-                              <form method="POST">
-                              <td><input type='submit' class='btn btn-info delete-user-btn' name='delete' value='DELETE'></td>
-                              <input type='hidden' name='postid' value='<?=$user['id']?>'>
-                              </form>
-                            
-                              </tr> 
+                              <div class="btn-cell">
+                                <td>
+                                  <form action="editusers.php" method='GET'>
+                                    <input type='submit' class='btn btn-dark ' name='edit' value='EDIT'> 
+                                    <input type='hidden' name='postid' value='<?=$user['id']?>'>
+                                  </form>
+                                </td>
+                                <td >
+                                  <form method="POST">
+                                    <input type='submit' class='btn btn-dark delete-user-btn' name='delete' value='DELETE'>
+                                    <input type='hidden' name='postid' value='<?=$user['id']?>'>
+                                  </form>
+                                </td>
+                                </tr> 
+                            </div>
 
                      <?php }; ?>
                 </tbody>

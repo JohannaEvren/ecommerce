@@ -20,7 +20,7 @@
         } 
 
     
-    //fetch all
+    //fetch all users
 	function fetchAllUsers() {
     	global $dbconnect;
 
@@ -34,7 +34,27 @@
 		return $users;
     }
 
-    // Fetch by id
+    function fetchProductsById() {
+        global $dbconnect;
+        
+        try {
+            $query = "
+                SELECT * FROM products
+                WHERE id = :id
+            ";
+
+            $stmt = $dbconnect->prepare($query);
+            $stmt->bindvalue(':id', $_POST['productId']);
+            $stmt->execute();
+            $product = $stmt->fetch();
+        } catch (\PDOException $e) {
+          throw new \PDOException($e->getMessage(), (int) $e->getCode());
+        }
+
+        return $product;
+    }
+
+    // Fetch users by id
 
     function fetchUsersById($id) {
 	    global $dbconnect;
@@ -57,7 +77,7 @@
 	    return $user;
 	}
 
-	//Fetch by Email
+	//Fetch  users by Email
 	function fetchUsersByEmail($email) {
 	    global $dbconnect;
 

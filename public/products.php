@@ -21,7 +21,6 @@
 
 ?>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,6 +40,7 @@
         <p>HOME OF ALL YOUR FURNISHINGS</p>
     </div>
   <?php foreach ($products as $key => $products) { ?>
+
 
 <div class="row-fluid" <?=$products['id']?>>
 <div class="span12">
