@@ -1,19 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Muli:ital,wght@1,300&family=Open+Sans+Condensed:wght@300&display=swap');
 
+* {
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+form {
+    width: 80%;
+    margin: 5% 0 0 23%;
+}
+
 body {
 	overflow-x: hidden;
 }
 
-h2 {
+legend {
 	font-family: 'Muli', sans-serif;
-	font-size: 25px !important;
-	text-align: center;
-}
-
-.submitBtns {
-	display: flex;
-	margin-left: 35px;
-	margin-top: 20px;
 }
 
 input[type=submit] {
@@ -21,20 +24,5 @@ input[type=submit] {
 	border: none;
 	color: #FFF;
 	padding: 5px 10px;
-	margin-left: 5px;
 	font-family: 'Muli', sans-serif;
-}
-
-div.row {
-	width: 60%;
-	margin-left: 20px;
-	margin-top: 30px;
-}
-
-.list-group-item {
-	border-bottom: none !important;
-}
-
-li.list-group-item {
-	width: 500px;
 }
