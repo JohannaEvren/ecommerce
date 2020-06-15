@@ -19,7 +19,6 @@
 
      include "layout/header.php";
 
-     include "cart.php";
 
     
 
@@ -43,7 +42,7 @@
 
 
 <body>
-
+<?php include "cart.php";?>
 <div class="container-fluid">
    
    <!-- My new section -->
