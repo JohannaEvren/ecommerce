@@ -18,6 +18,8 @@ body header{
 	display: flex;
 }
 
+
+
 body hr{
 	background-color:black;
 	width: 100vw;
@@ -99,3 +101,65 @@ span.badge-danger {
 span.text-info {
 	color: #E01A3B !important;
 }
+
+.container-fluid{
+	font-family: 'Muli', sans-serif;
+}
+
+.cart-test{
+font-family: 'Muli', sans-serif;
+margin-bottom: 30px;
+font-size: 14px;
+background-color: rgba(227,210,193,0.2);
+padding:5px;
+
+}
+
+.cart-test h5{
+	font-size: 19px;
+	margin-top:10px;
+}
+
+.update-cart-form input{
+	width:60px;
+	padding:2px;
+
+}
+
+#deletsymbol{
+	display: inline-block;
+}
+
+#updateCart{
+	display: inline-block;
+}
+.shoppingCart{
+	text-align: center;
+	margin-bottom: 100px;
+}
+
+.showCart{
+	margin-bottom: 200px;
+}
+
+.deleteClassSymbol{
+	margin-top:-70px;
+}
+
+#checkout{
+	text-align: center;
+	margin-bottom: 100px;
+	margin-top: 200px;
+}
+
+
+.totalSum{
+	background-color: rgba(227,210,193,0.2);
+	text-align: right;
+	padding:5px;
+}
+
+#title{
+	margin-top: 100px;
+}
+
