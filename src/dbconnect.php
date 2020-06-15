@@ -3,7 +3,7 @@
 $host 	  = 'localhost';
 $database = 'ecommerce';
 $user     = 'root';
-$password = 'mysql';
+$password = '';
 $charset  = 'utf8mb4';
 
 $dns 	  = "mysql:host={$host};dbname={$database};charset={$charset}";

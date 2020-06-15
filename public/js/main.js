@@ -16,7 +16,7 @@ $(document).ready(function() {
 			dataType: 'json',
 			success: function(data) {
 				console.log(data);
-				window.location.href='login.php?logout'; // NÄR JAG BYTER TILL DENNA SIDA HOPPAR JU UPPDATERAR KNAPPEN TILL ÄNDÅ. RÄKNAS DET? GÖR PÅ UPDATE
+				window.location.href='login.php?logout'; 
 			},
 		});
 	}

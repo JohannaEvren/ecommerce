@@ -27,6 +27,7 @@ include('layout/header.php');
 </head>
 <body>
 	<section id ="userinfo">
+        <h2>MY ACCOUNT</h2>
         <div class="row">
             <ul class="list-group list-group-flush col-sm-6">
                 <li class="list-group-item"><b>User Id: </b><?=$user['id']?></li>
@@ -44,11 +45,11 @@ include('layout/header.php');
         <div class="submitBtns">
             <form action="update-user.php" method="GET">
                 <input type="hidden" name="id" value="<?=$user['id']?>">
-                <input type="submit" value="Update">
+                <input type="submit" value="UPDATE">
             </form>
             <form action="" method="POST">
                 <input type="hidden" name="id" value="<?=$user['id']?>">
-                <input type="submit" name="deleteUserBtn" value="Delete this account" class="delete-user-btn">
+                <input type="submit" name="deleteUserBtn" value="DELETE THIS ACCOUNT" class="delete-user-btn">
             </form>
         </div>
 	</section>

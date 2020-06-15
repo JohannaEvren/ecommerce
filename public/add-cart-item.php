@@ -10,19 +10,7 @@ if(!empty($_POST['quantity'])) {
 	$productId = (int) $_POST['productId'];
 	$quantity = (int) $_POST['quantity'];
 
-	try {
-		$query = "
-			SELECT * FROM products
-			WHERE id = :id
-		";
-
-		$stmt = $dbconnect->prepare($query);
-        $stmt->bindvalue(':id', $_POST['productId']);
-        $stmt->execute();
-        $product = $stmt->fetch();
-	} catch (\PDOException $e) {
-      throw new \PDOException($e->getMessage(), (int) $e->getCode());
-    }
+    $product = fetchProductsById($_POST['productId']);
 
     if ($product) {
     	$product = array_merge($product, ['quantity' => $quantity]);
@@ -52,6 +40,5 @@ if(!empty($_POST['quantity'])) {
 //echo "</pre>";
 
 //Sidan man kom ifrån
-
-header('Location: ' . $_SERVER['HTTP_REFERER']);
+redirect($_SERVER['HTTP_REFERER']);
 exit;

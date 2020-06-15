@@ -1,3 +1,7 @@
+body {
+	overflow-x: hidden;
+}
+
 div.loginbox {
 	width: 40%;
 	margin: 0 auto;
@@ -10,8 +14,8 @@ input.login {
 	background-color: #000;
 	border: none;
 	color: #FFF;
-	width: 80px;
-	padding: 5px;
+	padding: 5px 10px;
+	font-family: 'Muli', sans-serif;
 }
 
 input.logintext {
