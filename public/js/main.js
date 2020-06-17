@@ -3,7 +3,6 @@ $(document).ready(function() {
 	$('.delete-user-btn').on('click', deleteUserEvent);
 	function deleteUserEvent(e) {
 		e.preventDefault();
-		
 		let id = $(this).parent().find('input[name="id"]');
 		console.log(id.val());
 		$.ajax({
