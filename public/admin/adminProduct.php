@@ -51,7 +51,7 @@
                                   <tr>
                                       <td><?=$product['title']?></td>
                                       <td><?=$product['description']?></td>
-                                      <td><?=$product['price']?> SEK</td>
+                                      <td><?=$product['price']?> $</td>
                                         <td>
                                           <form action="editproduct.php" method='GET'>
                                             <input type='submit' class='btn btn-dark' name='edit' value='EDIT'>

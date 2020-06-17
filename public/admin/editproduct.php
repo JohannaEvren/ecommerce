@@ -144,9 +144,9 @@ require('../../src/dbconnect.php');
                 <label for="price">Price</label><br>
                 <input type="text" name="price" id="inputAuthor" value="<?=$product['price']?>">
               </p>
-              <input type="submit" class='btn btn-info' name="saveBlogPost" value="save">
+              <input type="submit" class='btn btn-dark' name="saveBlogPost" value="save">
               <input type='hidden' name='postid' value='<?=$product['id']?>'>
-              <input type="submit" class='btn btn-info' name="closeEditProducts" value="close & delete your changes">
+              <input type="submit" class='btn btn-dark' name="closeEditProducts" value="close & delete your changes">
           </form>
       </div>
     </div>

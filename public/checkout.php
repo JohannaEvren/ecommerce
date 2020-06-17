@@ -216,10 +216,6 @@
       }
 }
     
-?>
-
-        
-      <?php 
       include('layout/header.php');
       
 
@@ -238,12 +234,14 @@
 
 
 
-
           <div class="offset-1 col-10 showCart">
             <div class="shoppingCart">
              <h1 id="title">SHOPPINGCART</h1>
            </div>
             
+
+       <div class="container-fluid">
+    <div class="page-header">
           <?php foreach($_SESSION['cartItems'] as $cartId => $cartItem){ ?>
             <div class="offset-1 col-10">                    
             <div class="row cart-test">                    
@@ -258,7 +256,7 @@
                  <input type="number" name="quantity" value="<?=$cartItem['quantity']?>" min="0">                     
               </form>
               <br>
-              <h5><?=$cartItem['price']?> SEK</h5>
+              <h5><?=$cartItem['price']?> $</h5>
     
             </div>
              <div class="offset-10 col-1 deleteClassSymbol"> 
@@ -277,6 +275,8 @@
             </div>
 
             </div>
+          </div>
+        
 
                <?php };?>
 
@@ -299,6 +299,18 @@
            <h4 style="text-align: center;"> <a style="color:red;" href="products.php">CONTINUE SHOPPING?</a></h4>
 
           <h1 id="checkout">CHECK OUT</h1>
+
+
+
+          <?php if(isset($_SESSION['first_name'])){ ?>
+        
+                <form action="create-order-logedin.php" method="POST" class="logedinForm">
+                  <input type="hidden" name="totalPrice" value="<?=$cartTotalSum?>">
+                  <button type="submit" name="createOrderLoggedin" class="btn btn-dark logedinbtn"><?=$_SESSION['first_name']?>, click here to use the information from your acount</button>
+                  </form>
+
+            <?php } ?>
+
 
        
            <?=$msg?>
@@ -362,6 +374,7 @@
                 
               </div>
              
+        </div>
         </div>
         <?php include "layout/footer.php";?>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

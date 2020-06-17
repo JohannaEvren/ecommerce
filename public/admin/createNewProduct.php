@@ -99,8 +99,8 @@
               <label for="price">Price</label><br>
               <input type="number" name="price" id="" value="<?=$price?>">
             </p>
-            <input type="submit" class='btn btn-info' name="addProduct" value="save">
-            <input type="submit" class='btn btn-info' name="closeForm" value="close">
+            <input type="submit" class='btn btn-dark' name="addProduct" value="save">
+            <input type="submit" class='btn btn-dark' name="closeForm" value="close">
         </form>
       </div>
     </div>
