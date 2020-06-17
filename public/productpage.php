@@ -55,7 +55,7 @@
                   
                   <!-- Image -->
                   <div class="col-lg-8 col-lg-push-4 col-md-8 col-md-push-4 remove-paddings-and-margins">
-                  <a href="#"><img class="card-img-top" src="img/lampa.png" width="auto" height="auto" alt=""></a>
+                  <a href="#"><img class="card-img-top" src="<?=htmlentities($products['img_url'])?>" width="auto" height="auto" alt=""></a>
                   </div>
                   
                   <!-- Copy -->

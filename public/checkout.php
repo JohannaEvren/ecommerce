@@ -247,7 +247,7 @@
           <?php foreach($_SESSION['cartItems'] as $cartId => $cartItem){ ?>
             <div class="offset-1 col-10">                    
             <div class="row cart-test">                    
-              <div class="col-3"><img src="img/moble.jpeg" width="200px"></div>
+              <div class="col-3"><img src="<?=$cartItem['img_url']?>" width="200px"></div>
             <div class="col-6" style="padding:40px;">
               <h4><?=$cartItem['title']?> </h4>
               <br>

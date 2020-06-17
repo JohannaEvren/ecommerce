@@ -9,6 +9,7 @@
 
            throw new \PDOexception($e->getMessage(), $e->getCode());
          };
+
     include "layout/header.php";
     
      
@@ -51,7 +52,7 @@
                     <ul class="thumbnails">
                         <li class="span3">
                             <div class="thumbnail">
-                                <a href="productpage.php"><img src="img/lampa.png" width="200" height="200" alt=""></a>
+                                <a href="productpage.php"><img src="<?=htmlentities($products['img_url'])?>" width="200" height="200" alt=""></a>
                             </div>
                             <div class="caption">
                                 <h4><?=htmlentities($products['title'])?></h4>
