@@ -1,6 +1,7 @@
 <?php
 
 require('../../src/dbconnect.php');
+require('../../src/config.php');
  
      $title   = "";
      $description = "";
@@ -67,10 +68,27 @@ require('../../src/dbconnect.php');
                 //SAVE CHANGES IF COMMING FROM ADMINISTRATION-PAGE, AND DIRECT BACK TO ADMIN-PAGE.
                if(isset($_GET['postid'])){
 
+                 $status = $statusMsg = ''; 
+                  if(isset($_POST["saveBlogPost"])){ 
+                  $status = 'error'; 
+                  if(!empty($_FILES["image"]["name"])) { 
+
+                  // Get file info 
+                  $fileName = basename($_FILES["image"]["name"]); 
+                  $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
+                   
+                  // Allow certain file formats 
+                  $allowTypes = array('jpg','png','jpeg','gif'); 
+                  if(in_array($fileType, $allowTypes)){ 
+                      $image = $_FILES['image']['tmp_name']; 
+                      $imgContent = addslashes(file_get_contents($image)); 
+                      $img_dir = 'uploads/'.$_FILES['image']['name'];
+
+
                   try{  
                     $query = "
                         UPDATE products
-                        SET title = :title, description = :description, price = :price 
+                        SET title = :title, description = :description, price = :price, img_url = :img_url 
                         WHERE id = :id;
                       ";
                       $stmt  = $dbconnect->prepare($query);
@@ -78,11 +96,26 @@ require('../../src/dbconnect.php');
                       $stmt->bindValue(':description', $description);
                       $stmt->bindValue(':price', $price);
                       $stmt->bindValue(':id', $_GET['postid']);
+                      $stmt->bindValue(':img_url', $img_dir);
                       $stmt->execute();
                        }catch (\PDOexception $e) {
                           throw new \PDOexception($e->getMessage(), (int) $e->getCode());
                     };
                     
+                     if($query){ 
+                      $status = 'success'; 
+                      $statusMsg = "File uploaded successfully."; 
+                    } else { 
+                      $statusMsg = "File upload failed, please try again."; 
+                    }  
+                    }else{ 
+                      $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
+                    } 
+                    }else{ 
+                      $statusMsg = 'Please select an image file to upload.'; 
+                    } 
+              } 
+              echo $statusMsg; 
                       header('location: adminProduct.php');
 
                     }
@@ -133,7 +166,7 @@ require('../../src/dbconnect.php');
       <div class="offset-3 col-6 newProductBox">
         <?=$msg ?><br>
         <div class="form-group">
-          <form id="blogpost" method="POST">
+          <form id="blogpost" method="POST" enctype="multipart/form-data">
               <p>
                 <label for="title">Title</label><br>
                 <input type="text" name="title" id="inputTitle" value="<?=$product['title']?>">
@@ -143,6 +176,11 @@ require('../../src/dbconnect.php');
                 <textarea rows="6" cols="50" name="description" form="blogpost"><?=$product['description']?></textarea><br>
                 <label for="price">Price</label><br>
                 <input type="text" name="price" id="inputAuthor" value="<?=$product['price']?>">
+              </p>
+              <!--Upload images-->
+              <h3>File upload</h3>
+              <p>
+                file: <input type="file" name="image" value=""/>
               </p>
               <input type="submit" class='btn btn-dark' name="saveBlogPost" value="save">
               <input type='hidden' name='postid' value='<?=$product['id']?>'>

@@ -41,7 +41,16 @@
         }
 
         if (empty($email)) {
-            $error .= "<li class='list-group-item list-group-item-danger'>Lastname is mandatory</li>";
+            $error .= "<li class='list-group-item list-group-item-danger'>Email is mandatory</li>";
+        }
+
+        $users = fetchAllUsers();
+        $userById = fetchUsersById($_SESSION['id']);
+
+        foreach ($users as $user) {
+            if ($_POST['email'] == $user['email'] && $_POST['email'] != $userById['email']) {
+                $error .= "<li class='list-group-item list-group-item-danger'>This Email already exist!</li>";
+            }
         }
 
         if (empty($phone)) {
