@@ -132,7 +132,7 @@
               <label for="price">Price</label><br>
               <input type="number" name="price" id="" value="<?=$price?>">
             </p>
-            <!-- TEST FÖR BILDER-->
+            <!--Upload images-->
             <h3>File upload</h3>
             <p>
               file: <input type="file" name="image" value=""/>
