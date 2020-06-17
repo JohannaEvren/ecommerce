@@ -22,7 +22,7 @@
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['first_name'] = $user['first_name'];
             $_SESSION['id'] = $user['id'];
-            redirect('mypages.php');
+            redirect('products.php');
             exit;
         } else {
             $msg = '<div class="alert alert-danger">Incorrect login information. Please try again.</div>';

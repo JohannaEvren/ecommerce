@@ -4,7 +4,6 @@
   require('../../src/config.php');
   require('../../src/dbconnect.php');
  
-
       $products = fetchAllProducts();
       $sucsess = '';
       
