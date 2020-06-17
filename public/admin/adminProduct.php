@@ -24,7 +24,7 @@
                 <div class="offset-2 col-8 adminField">
                     <div class="row">
                         <div class="inNav">
-                          <h3>Manage users here</h3>
+                          <h3>Manage products here</h3>
                         <a href="createNewProduct.php"><button class="btn btn-dark">Create new</button></a>
                         </div>
                         <br><br>

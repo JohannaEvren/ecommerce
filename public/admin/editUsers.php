@@ -31,6 +31,7 @@ require('../../src/dbconnect.php');
 
 
             $users = fetchAllUsers();
+            $userById = fetchUsersById($_GET['postid']);
             $error = "";
                 
         
@@ -49,6 +50,15 @@ require('../../src/dbconnect.php');
         if(trim($_POST['last_name']) == ''){
           $error .= "<li class='list-group-item list-group-item-danger'>Last name can not be empty</li>";
 
+        }
+
+
+      
+
+        foreach ($users as $user) {
+            if ($_POST['email'] == $user['email'] && $_POST['email'] != $userById['email']) {
+                $error .= "<li class='list-group-item list-group-item-danger'>This Email already exist!</li>";
+            }
         }
 
         if(trim($_POST['email']) == ''){
