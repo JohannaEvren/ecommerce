@@ -7,8 +7,9 @@
 }
 
 body header{ 
-	/*background-color: rgba(39,39,39,1);*/
+	
 	color:black;
+	background-color: rgba(227,210,193,0.2);
 	padding: 5px 25px 10px 25px;
 	text-align: center;
 	padding:25px;
@@ -21,7 +22,8 @@ body header{
 
 
 body hr{
-	background-color:black;
+	margin-top:0;
+	background-color: rgba(227,210,193,1);
 	width: 100vw;
 	height: 3px;
 }
@@ -114,6 +116,7 @@ margin-bottom: 30px;
 font-size: 14px;
 background-color: rgba(227,210,193,0.2);
 padding:5px;
+border-top: 6px solid rgba(227,210,193,1);
 
 }
 
@@ -158,6 +161,7 @@ padding:5px;
 .totalSum{
 	background-color: rgba(227,210,193,0.2);
 	text-align: right;
+	border-bottom: 6px solid rgba(227,210,193,1);
 	padding:5px;
 }
 
@@ -190,3 +194,23 @@ img.cartimg{
     }
 }
 
+
+
+.logedinForm {
+	width:500px;
+	margin-left:calc(50% - 250px);
+}
+
+
+.logedinForm > button {
+	padding:20px;
+	font-size: 23px;
+	background-color: rgba(227,210,193,0.2) !important;
+	color:red;
+
+}
+
+.confirmInfo{
+	width: 300px;
+	margin-left:calc(50% - 150px);
+}
