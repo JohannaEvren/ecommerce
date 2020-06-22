@@ -2,11 +2,6 @@
     require('../src/config.php');
     require('../src/dbconnect.php');
 
-// echo "<pre>";
-// print_r($_POST);
-// echo "</pre>";
-// exit;
-
     $first_name      = '';
     $last_name       = '';
     $email           = '';

@@ -14,15 +14,8 @@ if(!empty($_POST['quantity'])) {
 
     if ($product) {
     	$product = array_merge($product, ['quantity' => $quantity]);
-    	//echo "<pre>";
-		//print_r($_POST);
-		//echo "</pre>";
 		
 		$cartItem = [$productId => $product];
-
-        //echo "<pre>";
-		//print_r($cartItem);
-		//echo "</pre>";
 		
         if (empty($_SESSION['cartItems'])) {
         	$_SESSION['cartItems'] = $cartItem;
@@ -35,10 +28,7 @@ if(!empty($_POST['quantity'])) {
         }
     }
 }
-//echo "<pre>";
-//print_r($_SERVER);
-//echo "</pre>";
 
-//Sidan man kom ifrån
+// Sidan man kom från.
 redirect($_SERVER['HTTP_REFERER']);
 exit;
