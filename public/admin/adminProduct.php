@@ -45,21 +45,21 @@
                                 <tbody id="ProdList">
                                 <?php 
 
-                          foreach(array_reverse($products) as $product){ ?>
+                          foreach(($products) as $product){ ?>
 
                                   <tr>
-                                      <td><?=$product['title']?></td>
-                                      <td><?=$product['description']?></td>
-                                      <td><?=$product['price']?> $</td>
+                                      <td><?=htmlentities($product['title'])?></td>
+                                      <td><?=htmlentities($product['description'])?></td>
+                                      <td><?=htmlentities($product['price'])?> $</td>
                                         <td>
                                           <form action="editproduct.php" method='GET'>
                                             <input type='submit' class='btn btn-dark' name='edit' value='EDIT'>
-                                            <input type='hidden' name='postid' value='<?=$product['id']?>'>
+                                            <input type='hidden' name='postid' value='<?=htmlentities($product['id'])?>'>
                                           </form>
                                         </td> 
                                        <td><form method="POST">
                                             <input type='submit' class='btn btn-dark delete-prod-btn' id="delete-btn" name='delete' value='DELETE'>
-                                            <input type='hidden' name='postid' value='<?=$product['id']?>'>
+                                            <input type='hidden' name='postid' value='<?=htmlentities($product['id'])?>'>
                                         </form></td>
                                   </tr> 
                              <?php }; ?>

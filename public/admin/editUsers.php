@@ -27,11 +27,11 @@ require('../../src/dbconnect.php');
             $country = trim($_POST['country']);
             $password = trim($_POST['password']);
             $confirmPassword = trim($_POST['confirmPassword']);
-            $id      = $_GET['postid'];
+            $id      = $_POST['postid'];
 
 
             $users = fetchAllUsers();
-            $userById = fetchUsersById($_GET['postid']);
+            $userById = fetchUsersById($_POST['postid']);
             $error = "";
                 
         
@@ -146,35 +146,35 @@ require('../../src/dbconnect.php');
           <form id="blogpost" method="POST">
               <p>
                 <label for="first_name">Fist Name</label><br>
-                <input type="text" name="first_name" id="" value="<?=$user['first_name']?>">
+                <input type="text" name="first_name" id="" value="<?=htmlentities($user['first_name'])?>">
               </p>
               <p>
                 <label for="last_name">Last Name</label><br>
-                <input type="text" name="last_name" id="" value="<?=$user['last_name']?>">
+                <input type="text" name="last_name" id="" value="<?=htmlentities($user['last_name'])?>">
               </p>
               <p>
                 <label for="email">Email</label><br>
-                <input type="email" name="email" id="" value="<?=$user['email']?>">
+                <input type="email" name="email" id="" value="<?=htmlentities($user['email'])?>">
               </p>
               <p>
                 <label for="phone">phone</label><br>
-                <input type="text" name="phone" id="" value="<?=$user['phone']?>">
+                <input type="text" name="phone" id="" value="<?=htmlentities($user['phone'])?>">
               </p>
               <p>
                 <label for="street">Street</label><br>
-                <input type="text" name="street" id="" value="<?=$user['street']?>">
+                <input type="text" name="street" id="" value="<?=htmlentities($user['street'])?>">
               </p>
                 <p>
                 <label for="postal_code">Postal code</label><br>
-                <input type="text" name="postal_code" id="" value="<?=$user['postal_code']?>">
+                <input type="text" name="postal_code" id="" value="<?=htmlentities($user['postal_code'])?>">
               </p>
                   <p>
                 <label for="city">city</label><br>
-                <input type="text" name="city" id="" value="<?=$user['city']?>">
+                <input type="text" name="city" id="" value="<?=htmlentities($user['city'])?>">
               </p>
                   <p>
                 <label for="country">Country</label><br>
-                <input type="text" name="country" id="" value="<?=$user['country']?>">
+                <input type="text" name="country" id="" value="<?=htmlentities($user['country'])?>">
               </p>
                <p>
                 <label for="password">Password</label><br>
@@ -186,7 +186,7 @@ require('../../src/dbconnect.php');
               </p>
               
               <input type="submit" class='btn btn-dark' name="saveEditUser" value="save">
-              <input type='hidden' name='postid' value='<?=$user['id']?>'>
+              <input type='hidden' name='postid' value='<?=htmlentities($user['id'])?>'>
               <input type="submit" class='btn btn-dark' name="closeEditUser" value="close & delete your changes">
           </form>
       </div>

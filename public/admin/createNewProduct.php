@@ -124,13 +124,13 @@
           <form id="newProduct" method="POST" enctype="multipart/form-data">
             <p>
               <label for="title">Title</label><br>
-              <input type="text" name="title" id="" value="<?=$title?>">
+              <input type="text" name="title" id="" value="<?=htmlentities($title)?>">
             </p>
             <p>
               <label for="description">Write description here</label> <br>
-              <textarea rows="6" cols="50" name="description" form="newProduct"><?=$description?></textarea><br>
+              <textarea rows="6" cols="50" name="description" form="newProduct"><?=htmlentities($description)?></textarea><br>
               <label for="price">Price</label><br>
-              <input type="number" name="price" id="" value="<?=$price?>">
+              <input type="number" name="price" id="" value="<?=htmlentities($price)?>">
             </p>
             <!--Upload images-->
             <h3>File upload</h3>

@@ -67,28 +67,28 @@
 
                   <?php 
         
-                     foreach(array_reverse($users) as $user){ 
+                     foreach($users as $user){ 
 
                         $registerDate = substr($user['register_date'], 0, 11)
                       ?>
                           
                               <tr>   
-                              <td><?=$user['first_name']?></td>
-                              <td><?=$user['last_name']?></td>
-                              <td><?=$registerDate?></td>
-                              <td><?=$user['id']?></td>
+                              <td><?=htmlentities($user['first_name'])?></td>
+                              <td><?=htmlentities($user['last_name'])?></td>
+                              <td><?=htmlentities($registerDate)?></td>
+                              <td><?=htmlentities($user['id'])?></td>
 
                               <div class="btn-cell">
                                 <td>
                                   <form action="editusers.php" method='GET'>
                                     <input type='submit' class='btn btn-dark ' name='edit' value='EDIT'> 
-                                    <input type='hidden' name='postid' value='<?=$user['id']?>'>
+                                    <input type='hidden' name='postid' value='<?=htmlentities($user['id'])?>'>
                                   </form>
                                 </td>
                                 <td >
                                   <form method="POST">
                                     <input type='submit' class='btn btn-dark delete-user-btn' name='delete' value='DELETE'>
-                                    <input type='hidden' name='postid' value='<?=$user['id']?>'>
+                                    <input type='hidden' name='postid' value='<?=htmlentities($user['id'])?>'>
                                   </form>
                                 </td>
                                 </tr> 

@@ -71,7 +71,7 @@ require('../../src/config.php');
                  $status = $statusMsg = ''; 
                   if(isset($_POST["saveBlogPost"])){ 
                   $status = 'error'; 
-                  if(!empty($_FILES["image"]["name"])) { 
+                  if(!empty($_FILES["image"]["name"]))  
 
                   // Get file info 
                   $fileName = basename($_FILES["image"]["name"]); 
@@ -83,7 +83,9 @@ require('../../src/config.php');
                       $image = $_FILES['image']['tmp_name']; 
                       $imgContent = addslashes(file_get_contents($image)); 
                       $img_dir = 'uploads/'.$_FILES['image']['name'];
+                    }
 
+                   };     
 
                   try{  
                     $query = "
@@ -102,26 +104,26 @@ require('../../src/config.php');
                           throw new \PDOexception($e->getMessage(), (int) $e->getCode());
                     };
                     
-                     if($query){ 
+                    /* if($query){ 
                       $status = 'success'; 
                       $statusMsg = "File uploaded successfully."; 
-                    } else { 
+                    }else { 
                       $statusMsg = "File upload failed, please try again."; 
-                    }  
+                    }
                     }else{ 
                       $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
-                    } 
+                }
                     }else{ 
                       $statusMsg = 'Please select an image file to upload.'; 
                     } 
-              } 
-              echo $statusMsg; 
+              
+              echo $statusMsg; */
                       header('location: adminProduct.php');
 
-                    }
+                    
                  };
     };
-  
+  };
 
 
 
@@ -169,13 +171,13 @@ require('../../src/config.php');
           <form id="blogpost" method="POST" enctype="multipart/form-data">
               <p>
                 <label for="title">Title</label><br>
-                <input type="text" name="title" id="inputTitle" value="<?=$product['title']?>">
+                <input type="text" name="title" id="inputTitle" value="<?=htmlentities($product['title'])?>">
               </p>
               <p>
                 <label for="description">Write description here</label> <br>
-                <textarea rows="6" cols="50" name="description" form="blogpost"><?=$product['description']?></textarea><br>
+                <textarea rows="6" cols="50" name="description" form="blogpost"><?=htmlentities($product['description'])?></textarea><br>
                 <label for="price">Price</label><br>
-                <input type="text" name="price" id="inputAuthor" value="<?=$product['price']?>">
+                <input type="text" name="price" id="inputAuthor" value="<?=htmlentities($product['price'])?>">
               </p>
               <!--Upload images-->
               <h3>File upload</h3>
@@ -183,7 +185,7 @@ require('../../src/config.php');
                 file: <input type="file" name="image" value=""/>
               </p>
               <input type="submit" class='btn btn-dark' name="saveBlogPost" value="save">
-              <input type='hidden' name='postid' value='<?=$product['id']?>'>
+              <input type='hidden' name='postid' value='<?=htmlentities($product['id'])?>'>
               <input type="submit" class='btn btn-dark' name="closeEditProducts" value="close & delete your changes">
           </form>
       </div>
