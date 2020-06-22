@@ -138,7 +138,7 @@
                     $stmt->bindValue(':firstname', $firstName);
                     $stmt->bindValue(':lastname', $lastName);
                     $stmt->bindValue(':email', $email);
-                    $stmt->bindValue(':password', $password);
+                    $stmt->bindValue(':password', password_hash($password, PASSWORD_BCRYPT));
                     $stmt->bindValue(':phone', $phone);
                     $stmt->bindValue(':street', $adress);
                     $stmt->bindValue(':postal_code', $zip);
@@ -245,15 +245,15 @@
           <?php foreach($_SESSION['cartItems'] as $cartId => $cartItem){ ?>
             <div class="offset-1 col-10">                    
             <div class="row cart-test">                    
-              <div class="col-3"><img src="<?=$cartItem['img_url']?>" width="200px"></div>
+              <div class="col-3"><img src="<?=htmlentities($cartItem['img_url'])?>" width="200px"></div>
             <div class="col-6" style="padding:40px;">
-              <h4><?=$cartItem['title']?> </h4>
+              <h4><?=htmlentities($cartItem['title'])?> </h4>
               <br>
-              <?=$cartItem['description']?>
+              <?=htmlentities($cartItem['description'])?>
               <br> 
               <form class="update-cart-form" action="update-cart-item.php" id="updateCart" method="POST">
-                 <input type="hidden" name="cartId" value="<?=$cartId?>">
-                 <input type="number" name="quantity" value="<?=$cartItem['quantity']?>" min="0">                     
+                 <input type="hidden" name="cartId" value="<?=htmlentities($cartId)?>">
+                 <input type="number" name="quantity" value="<?=htmlentities($cartItem['quantity'])?>" min="0">                     
               </form>
               <br>
               <h5><?=$cartItem['price']?> $</h5>
@@ -261,7 +261,7 @@
             </div>
              <div class="offset-10 col-1 deleteClassSymbol"> 
               <form action="delete-cart-item.php" id="deletsymbol" method="POST"> 
-                  <input type="hidden" name="cartId" value="<?=$cartId?>">
+                  <input type="hidden" name="cartId" value="<?=htmlentities($cartId)?>">
                   <button type="submit" class="btn">
                     <svg class="bi bi-trash" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="    currentColor"       xmlns="http://www.w3.org/2000/svg">
                         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
@@ -281,7 +281,7 @@
                <?php };?>
 
                <div class="offset-1 col-10 totalSum">
-                <h3>Total: <?=$cartTotalSum?> $ </h3>
+                <h3>Total: <?=htmlentities($cartTotalSum)?> $ </h3>
               </div>
            
 
@@ -305,8 +305,8 @@
           <?php if(isset($_SESSION['first_name'])){ ?>
         
                 <form action="create-order-logedin.php" method="POST" class="logedinForm">
-                  <input type="hidden" name="totalPrice" value="<?=$cartTotalSum?>">
-                  <button type="submit" name="createOrderLoggedin" class="btn btn-dark logedinbtn"><?=$_SESSION['first_name']?>, click here to use the information from your acount</button>
+                  <input type="hidden" name="totalPrice" value="<?=htmlentities($cartTotalSum)?>">
+                  <button type="submit" name="createOrderLoggedin" class="btn btn-dark logedinbtn"><?=htmlentities($_SESSION['first_name'])?>, click here to use the information from your acount</button>
                   </form>
 
             <?php } ?>
@@ -322,49 +322,49 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputFname">First Name</label>
-                  <input type="text" class="form-control" name="firstName" id="inputFname" value="<?=$firstName?>">
+                  <input type="text" class="form-control" name="firstName" id="inputFname" value="<?=htmlentities($firstName)?>">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputLname">Last Name</label>
-                  <input type="text" class="form-control" name="lastName" id="inputLname" value="<?=$lastName?>">
+                  <input type="text" class="form-control" name="lastName" id="inputLname" value="<?=htmlentities($lastName)?>">
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputEmail">Email</label>
-                  <input type="text" class="form-control" name="email" id="inputEmail" value="<?=$email?>">
+                  <input type="text" class="form-control" name="email" id="inputEmail" value="<?=htmlentities($email)?>">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputPhone">Phone</label>
-                  <input type="text" class="form-control" name="phone" id="inputPhone" value="<?=$phone?>" >
+                  <input type="text" class="form-control" name="phone" id="inputPhone" value="<?=htmlentities($phone)?>" >
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputPassword">Password</label>
-                <input type="password" class="form-control" id="inputPassword" name="password" value="<?=$password?>">
+                <input type="password" class="form-control" id="inputPassword" name="password" value="<?=htmlentities($password)?>">
               </div>
                <div class="form-group">
                 <label for="inputPassword2">Confirm Password</label>
-                <input type="password" class="form-control" id="inputPassword2" name="password2" value="<?=$confirmPassword?>">
+                <input type="password" class="form-control" id="inputPassword2" name="password2" value="<?=htmlentities($confirmPassword)?>">
               </div>
               <div class="row">
                 <div class="form-group col-md-3">
                   <label for="inputCity">City</label>
-                  <input type="text" name="city" class="form-control" id="inputCity" value="<?=$city?>">
+                  <input type="text" name="city" class="form-control" id="inputCity" value="<?=htmlentities($city)?>">
                 </div>
                 <div class="form-group col-md-3">
                   <label for="inputState">country</label>
-                  <select id="inputState" name="country" class="form-control" value="<?=$country?>">  
+                  <select id="inputState" name="country" class="form-control" value="<?=htmlentities($country)?>">  
                     <option>SWEDEN</option>
                   </select>
                 </div>
                 <div class="form-group col-md-4">
                 <label for="inputAddress">Address</label>
-                <input type="text" class="form-control" id="inputAddress" name="adress" value="<?=$adress?>">
+                <input type="text" class="form-control" id="inputAddress" name="adress" value="<?=htmlentities($adress)?>">
                 </div>
                 <div class="form-group col-md-2">
                   <label for="inputZip">Zip</label>
-                  <input type="text" name="postal_code" class="form-control" id="inputZip" value="<?=$zip?>">
+                  <input type="text" name="postal_code" class="form-control" id="inputZip" value="<?=htmlentities($zip)?>">
                 </div>
               </div>
               </div>

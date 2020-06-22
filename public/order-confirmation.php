@@ -69,9 +69,9 @@
 
                     <div class="offset-1 col-12"> 
                       <div class="row">
-                          <div class="col-2"><?=$cartItem['title']?></div> 
-                          <div class="col-8"><?=$cartItem['description']?></div>
-                          <div class="col-2"><h5><?=$cartItem['price']?> SEK</h5></div>
+                          <div class="col-2"><?=htmlentities($cartItem['title'])?></div> 
+                          <div class="col-8"><?=htmlentities($cartItem['description'])?></div>
+                          <div class="col-2"><h5><?=htmlentities($cartItem['price'])?> SEK</h5></div>
                         </tr>
                         <hr>
                      

@@ -109,7 +109,7 @@
 
 
               registerUser($userData);
-               //MÅSTE BYTA NAMN PÅ FUNKTIONENE!!!!!!
+             
   
                header('Location: adminUsers.php?sucsessNew=yes');
         }
@@ -139,43 +139,43 @@
           <form id="" method="POST">
               <p>
                 <label for="first_name">Fist Name</label><br>
-                <input type="text" name="first_name" id="" value="<?=$first_name?>">
+                <input type="text" name="first_name" id="" value="<?=htmlentities($first_name)?>">
               </p>
               <p>
                 <label for="last_name">Last Name</label><br>
-                <input type="text" name="last_name" id="" value="<?=$last_name?>">
+                <input type="text" name="last_name" id="" value="<?=htmlentities($last_name)?>">
               </p>
               <p>
                 <label for="email">Email</label><br>
-                <input type="email" name="email" id="" value="<?=$email?>">
+                <input type="email" name="email" id="" value="<?=htmlentities($email)?>">
               </p>
               <p>
                 <label for="phone">phone</label><br>
-                <input type="text" name="phone" id="" value="<?=$phone?>">
+                <input type="text" name="phone" id="" value="<?=htmlentities($phone)?>">
               </p>
               <p>
                 <label for="street">Street</label><br>
-                <input type="text" name="street" id="" value="<?=$street?>">
+                <input type="text" name="street" id="" value="<?=htmlentities($street)?>">
               </p>
                 <p>
                 <label for="postal_code">Postal code</label><br>
-                <input type="text" name="postal_code" id="" value="<?=$postal_code?>">
+                <input type="text" name="postal_code" id="" value="<?=htmlentities($postal_code)?>">
               </p>
                   <p>
                 <label for="city">city</label><br>
-                <input type="text" name="city" id="" value="<?=$city?>">
+                <input type="text" name="city" id="" value="<?=htmlentities($city)?>">
               </p>
                   <p>
                 <label for="country">Country</label><br>
-                <input type="text" name="country" id="" value="<?=$country?>">
+                <input type="text" name="country" id="" value="<?=htmlentities($country)?>">
               </p>
               <p>
                 <label for="password">Password</label><br>
-                <input type="password" name="password" id="" value="<?=$password?>">
+                <input type="password" name="password" id="" value="<?=htmlentities($password)?>">
               </p>
               <p>
                 <label for="password">Confirm Password</label><br>
-                <input type="password" name="confirmPassword" id="" value="<?=$confirmPassword?>">
+                <input type="password" name="confirmPassword" id="" value="<?=htmlentities($confirmPassword)?>">
               </p>
               
               <input type="submit" class='btn btn-dark' name="addUser" value="save">
