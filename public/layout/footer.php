@@ -10,7 +10,7 @@
 <body>
 
 <footer>
-  <div class="container-fluid">
+  <div class="footer-fluid">
     <div class="row">
       <div class="col-12 col-md">Inredning <small class="d-block my-3 text-muted">© 2020</small> 
     <a href="mailto:hello@.com" title="mail us"><p>Mail: hello@.com</p></a></div>
