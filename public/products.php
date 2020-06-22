@@ -52,7 +52,7 @@
                     <ul class="thumbnails">
                         <li class="span3">
                             <div class="thumbnail">
-                                <a href="productpage.php"><img src="<?=htmlentities($products['img_url'])?>" width="200" height="200" alt=""></a>
+                                <a href=""><img src="<?=htmlentities($products['img_url'])?>" width="200" height="200" alt=""></a>
                             </div>
                             <div class="caption">
                                 <h4><?=htmlentities($products['title'])?></h4>
