@@ -81,18 +81,3 @@ ul.product-description li i {
   right: 30px;
 }
 
-/* Footer */
-.footer {
-  margin: auto;
-  width: 100%;
-  max-width: 960px;
-  display: block;
-  font-size: 0.69rem;
-}
-.footer,
-.footer a {
-  color: #c9e4f7;
-}
-
-input {
-}
