@@ -42,38 +42,27 @@
 </head>
 <div class="container-fluid">
     <div class="row loginbox">
-        <!--
-        <header>
-            <form action="register.php" method="POST">
-              <input type="submit" name="registerBtn" value="Register">
-            </form> 
-            <form action="index.php" method="POST">
-              <input type="submit" name="tohomeBtn" value="Home">
-            </form> 
-        </header>
-        -->
-            <form method="POST" action="#">
-                <fieldset>
-                    <legend>Log in</legend>
-                        
-                    <!-- Visa errormeddelanden -->
+        <form method="POST" action="#">
+            <fieldset>
+                <legend>Log in</legend>                
+                <!-- Visa errormeddelanden -->
                     <?=$msg?>
                         
-                    <p>
-                        <label for="input1">Email:</label> <br>
-                        <input type="text" class="logintext" name="email">
-                    </p>
+                <p>
+                    <label for="input1">Email:</label> <br>
+                    <input type="text" class="logintext" name="email">
+                </p>
 
-                    <p>
-                        <label for="input2">Password:</label> <br>
-                        <input type="password" class="logintext" name="password">
-                    </p>
+                <p>
+                    <label for="input2">Password:</label> <br>
+                    <input type="password" class="logintext" name="password">
+                </p>
 
-                    <p>
-                        <input type="submit" class="login" name="doLogin" value="LOG IN">
-                    </p>
-                </fieldset>
-            </form>
+                <p>
+                    <input type="submit" class="login" name="doLogin" value="LOG IN">
+                </p>
+            </fieldset>
+        </form>
     </div>
 
 </div>
