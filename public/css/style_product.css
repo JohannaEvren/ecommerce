@@ -1,6 +1,6 @@
 body {
-  background: #3399cc;
-  padding: 40px;
+  padding: 0;
+  margin: 0;
 }
 
 a {
@@ -73,18 +73,6 @@ a:hover {
   width: 15px;
 }
 
-/* Footer */
-.footer {
-  margin: auto;
-  width: 100%;
-  max-width: 960px;
-  display: block;
-  font-size: 0.69rem;
-}
-.footer,
-.footer a {
-  color: #c9e4f7;
-}
 p.right {
   float: right;
 }
@@ -116,3 +104,4 @@ p.right {
   background-color: #000;
   color: #fff;
 }
+
