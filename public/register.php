@@ -24,7 +24,7 @@
         $phone           = trim($_POST['phone']);
         $street          = trim($_POST['street']);
         $postal_code     = trim($_POST['postalcode']);
-        $city            = trim($_POST['confirmPassword']);
+        $city            = trim($_POST['city']);
         $country         = trim($_POST['country']);
         $password        = trim($_POST['password']);
         $confirmPassword = trim($_POST['confirmPassword']);

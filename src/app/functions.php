@@ -178,7 +178,7 @@
                 $stmt->bindValue(':street', $userData['street']);
                 $stmt->bindValue(':postal_code', $userData['postalcode']);
                 $stmt->bindValue(':city', $userData['city']);
-                $stmt->bindValue(':country', $userData['password']);
+                $stmt->bindValue(':country', $userData['country']);
                 $result = $stmt->execute(); // returns true/false
 
                 } catch(\PDOException $e) {
